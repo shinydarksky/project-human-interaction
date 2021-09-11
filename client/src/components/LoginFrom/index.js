@@ -3,7 +3,10 @@ import React from 'react'
 const LoginFrom = () => {
     return (
         <div>
-            login
+            <form>
+                <input/>
+                <button>Đăng nhập</button>
+            </form>
         </div>
     )
 }
