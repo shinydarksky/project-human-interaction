@@ -1,0 +1,16 @@
+.nav-menu {
+	display: flex;
+	align-items: center;
+
+	&__link {
+		display: inline-block;
+		padding: 10px 16px;
+
+		color: white;
+		font-size: 1.2rem;
+		font-weight: 500;
+
+		cursor: pointer;
+		user-select: none;
+	}
+}
