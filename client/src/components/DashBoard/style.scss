@@ -1,0 +1,22 @@
+.title h3{
+    font-size: 24px;
+    margin: 20px;
+}
+
+.gp-btn{
+    margin-top: 10px;
+    button{
+        width: 100px;
+        height: 30px;
+        outline: none;
+        border: none;
+        margin: 5px;
+        font-size: 14px;
+        line-height: 1.4;
+        border-radius: 5px;
+    }
+    button:hover{
+        background-color:orange;
+        cursor: pointer;
+    }
+}

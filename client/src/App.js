@@ -1,10 +1,18 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { useEffect } from 'react'
 import AdminPage from './pages/AdminPage'
 import HomePage from './pages/HomePage'
 import Auth from './pages/Auth'
 import 'bootstrap/scss/bootstrap-grid.scss'
-
+import Ecommerce from "./components/Ecommerce";
+import { animals } from '../src/pages/data'
+import { useDispatch } from 'react-redux'
+import { setAnimal } from './redux/animalSlice'
 function App() {
+	const dispatch = useDispatch()
+	useEffect(() => {
+		dispatch(setAnimal(animals))
+	})
 	return (
 		<div className="App">
 			<Router>
@@ -16,8 +24,10 @@ function App() {
 						render={props => <Auth {...props} authRoute="login" />}
 					/>
 					<Route exact path="/admin" component={AdminPage} />
+					<Route exact path='/detail' component={Ecommerce} />
 				</Switch>
 			</Router>
+
 		</div>
 	)
 }

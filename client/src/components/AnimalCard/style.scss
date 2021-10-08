@@ -3,7 +3,7 @@
 	border: 1px solid #ccc;
 	background-color: white;
 	overflow: hidden;
-
+	position: relative;
 	&__image {
 		img {
 			width: 100%;
@@ -13,4 +13,27 @@
 		padding: 16px 8px;
 		text-align: center;
 	}
+
+	.gp-edit{		
+		display: none;
+		position: absolute;
+		right: 0;
+		button{
+			width: 40px;
+			height: 30px;
+			border: none;
+			margin: 0 2px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		margin: 2px 0;
+	}
+
+	&:hover .gp-edit{
+		display: block;
+	}
+}
+
+.animal-card:hover{
+	transform: scale(1.05);
 }

@@ -16,6 +16,12 @@ function AnimalCard(props) {
 	if (!animal) return null
 	return (
 		<div className="animal-card">
+			{
+				props.isadmin && <div className="gp-edit">
+					<button>Sửa</button>
+					<button>Xóa</button>
+				</div>
+			}
 			<div className="animal-card__image">
 				<img src={animal.image} alt="Animal" />
 			</div>
