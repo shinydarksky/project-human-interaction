@@ -6,9 +6,9 @@ import './style.scss'
 export default function DashBoard({boardType}) {
     return (
         <div>
-            {boardType == 0 && <AnimalBoard />}
-            {boardType == 1 && <AnimalSpecies />}
-            {boardType == 2 && <Setting />}
+            {boardType === 0 && <AnimalBoard />}
+            {boardType === 1 && <AnimalSpecies />}
+            {boardType === 2 && <Setting />}
         </div>
     )
 }
