@@ -19,10 +19,10 @@ export const getAnimalFamilyList = (req, res) => {
 
 export const insertAnimalFamily = (req, res) => {
 	const query = 'INSERT INTO HO_DV SET ?'
-
 	db.query(query, [req.body], (err, response) => {
 		if (err) {
 			res.sendStatus(500)
+			console.log(err);
 			return
 		}
 
@@ -36,7 +36,6 @@ export const insertAnimalFamily = (req, res) => {
 export const updateAnimalFamily = (req, res) => {
 	const { ma_ho, ...data } = req.body
 	const query = 'UPDATE HO_DV SET ? WHERE ma_ho = ?'
-
 	db.query(query, [data, ma_ho], (err, response) => {
 		if (err) {
 			res.sendStatus(500)

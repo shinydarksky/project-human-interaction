@@ -1,12 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import './AdminPage.scss'
 import DashBoard from '../components/DashBoard'
+import { useDispatch, useSelector } from 'react-redux'
+import { setLogout } from '../redux/authSlice'
+import { useHistory } from 'react-router'
+
 const AdminPage = () => {
     const [selectBoard, setSelectBoard] = useState(0)
+    const dispatch = useDispatch()
+	const history = useHistory()
 
-    const handdleSelectBoard = type =>{
+    const {isAuth} = useSelector(state=>state.auth)
+
+    useEffect(() => {
+        if(!isAuth){
+            history.replace('/login')
+        }
+    })
+
+    const handdleSelectBoard = type => {
         setSelectBoard(type)
     }
+
+
 
     return (
         <div className="container-fluid justify-content-center align-items-center">
@@ -15,20 +31,27 @@ const AdminPage = () => {
                     <div className="tool-logo" >
                         Quản lý
                     </div>
-                    <div className="tool-item" 
-                    onClick={()=>handdleSelectBoard(0)}
-                    > 
+                    <div className="tool-item"
+                        onClick={() => handdleSelectBoard(0)}
+                    >
                         Danh sách động vật
                     </div>
-                    <div className="tool-item" 
-                    onClick={()=>handdleSelectBoard(1)}
+                    <div className="tool-item"
+                        onClick={() => handdleSelectBoard(1)}
                     >
                         Danh sách loài
                     </div>
-                    <div className="tool-item" 
-                    onClick={()=>handdleSelectBoard(2)}
+                    <div className="tool-item"
+                        onClick={() => handdleSelectBoard(2)}
                     >
                         Cài đặt
+                    </div>
+                    <div className="tool-item"
+                        onClick={() => {
+                            dispatch(setLogout())
+                        }}
+                    >
+                        Đăng xuất
                     </div>
                 </div>
                 <div className="layout-tool col-sm-8 col-md-9">
@@ -36,7 +59,7 @@ const AdminPage = () => {
                         <button>Mở</button>
                         Quản lý
                     </div>
-                    <DashBoard boardType={selectBoard}/>
+                    <DashBoard boardType={selectBoard} />
                 </div>
             </div>
         </div>
