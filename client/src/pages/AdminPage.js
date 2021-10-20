@@ -1,28 +1,37 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import './AdminPage.scss'
 import DashBoard from '../components/DashBoard'
 import { useDispatch, useSelector } from 'react-redux'
-import { setLogout } from '../redux/authSlice'
+import { setLogout, loadLogin } from '../redux/authSlice'
 import { useHistory } from 'react-router'
+import { Redirect } from "react-router-dom";
 
 const AdminPage = () => {
     const [selectBoard, setSelectBoard] = useState(0)
     const dispatch = useDispatch()
-	const history = useHistory()
+    const history = useHistory()
 
-    const {isAuth} = useSelector(state=>state.auth)
+    const { isAuth } = useSelector(state => state.auth)
 
-    useEffect(() => {
-        if(!isAuth){
-            history.replace('/login')
+    function loadUser(){
+        const acccessToken = localStorage.getItem('accessToken')
+        if(acccessToken !=null){
+            dispatch(loadLogin(acccessToken))  
         }
-    })
+    }
+
+    useEffect(loadUser,[dispatch])
+
+    if(!isAuth){
+        return <Redirect to="/login"/>
+    }
+
+
+
 
     const handdleSelectBoard = type => {
         setSelectBoard(type)
     }
-
-
 
     return (
         <div className="container-fluid justify-content-center align-items-center">
@@ -49,6 +58,7 @@ const AdminPage = () => {
                     <div className="tool-item"
                         onClick={() => {
                             dispatch(setLogout())
+                            history.replace('/login')
                         }}
                     >
                         Đăng xuất

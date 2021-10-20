@@ -41,6 +41,7 @@ export default function AnimalSpecies() {
 		}
 	}, [])
 
+
 	function createData(name, calories, id, carbs, protein) {
 		return { name, calories, id, carbs, protein };
 	}
@@ -112,8 +113,8 @@ export default function AnimalSpecies() {
 	}
 
 	function onClickDelete(id) {
-		setLoading(true)
 		if (window.confirm('Xác nhận xóa họ động vật')) {
+			setLoading(true)
 			axios.delete('http://localhost:8080/animalFamily/deleteAnimalFamily?ma_ho=' + id)
 				.then(({ data }) => {
 					eventNotify(data)
@@ -156,7 +157,7 @@ export default function AnimalSpecies() {
 							<TableRow>
 								<TableCell>STT</TableCell>
 								<TableCell >Họ động vật</TableCell>
-								<TableCell ></TableCell>
+								<TableCell  style={{maxWidth:100}}></TableCell>
 								<TableCell ></TableCell>
 							</TableRow>
 						</TableHead>
