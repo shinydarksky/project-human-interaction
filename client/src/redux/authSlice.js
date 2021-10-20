@@ -22,6 +22,8 @@ export const signInUser = createAsyncThunk(
             if(isRemember){
                 localStorage.setItem('accessToken',JSON.stringify(data))
             }
+            else
+                sessionStorage.setItem('accessToken',JSON.stringify(data))
 
             return data
         }
@@ -42,10 +44,14 @@ const auth = createSlice({
         // },
         setLogout:(state,action)=>{
             localStorage.removeItem('accessToken')
+            sessionStorage.removeItem('accessToken')
             return initState
         },
         loadLogin:(state,action)=>{
-            return {...state,isAuth:true,loading:true}
+            const acccessToken = localStorage.getItem('accessToken') || sessionStorage.getItem('accessToken')
+            if(acccessToken !=null){
+                return {...state,isAuth:true,loading:true}
+            }
         },
     },
     extraReducers:{
@@ -59,6 +65,7 @@ const auth = createSlice({
 		},
 		[signInUser.rejected]: (state, action) => {
             state.loading = false
+            state.isAuth = false
 		},
     }
 })

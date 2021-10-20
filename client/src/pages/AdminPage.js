@@ -14,12 +14,8 @@ const AdminPage = () => {
     const { isAuth } = useSelector(state => state.auth)
 
     function loadUser(){
-        const acccessToken = localStorage.getItem('accessToken')
-        if(acccessToken !=null){
-            dispatch(loadLogin(acccessToken))  
-        }
+            dispatch(loadLogin())  
     }
-
     useEffect(loadUser,[dispatch])
 
     if(!isAuth){
