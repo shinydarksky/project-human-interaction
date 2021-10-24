@@ -74,7 +74,7 @@ export default function AnimalSpecies() {
 	}
 
 	function handleAddSpecies() {
-		if (window.confirm('Xác nhận thêm họ động vật')) {
+		if (window.confirm('Xác nhận thêm Họ động vật')) {
 			setLoading(true)
 			axios.post('http://localhost:8080/animalFamily/insertAnimalFamily', { ten_ho: speciesText })
 				.then(({ data }) => {
@@ -113,7 +113,7 @@ export default function AnimalSpecies() {
 
 	function onClickDelete(id) {
 		setLoading(true)
-		if (window.confirm('Xác nhận xóa họ động vật')) {
+		if (window.confirm('Xác nhận xóa Họ động vật')) {
 			axios.delete('http://localhost:8080/animalFamily/deleteAnimalFamily?ma_ho=' + id)
 				.then(({ data }) => {
 					eventNotify(data)
@@ -130,9 +130,9 @@ export default function AnimalSpecies() {
 			{showNotify.isNotify && <Alert severity={showNotify.type}>{showNotify.message}</Alert>}
 			{loading && <Alert severity="warning">"Đang thực hiện thao tác vui lòng chờ"</Alert>}
 			<div className="title">
-				<h3>Quản lý danh sách họ động vật</h3>
+				<h3>Quản lý danh sách Họ động vật</h3>
 			</div>
-			<TextField id="demo-helper-text-misaligned-no-helper" label="Nhập họ động vật"
+			<TextField id="demo-helper-text-misaligned-no-helper" label="Nhập Họ động vật"
 				value={speciesText}
 				onChange={(e) => setSpeciesText(e.target.value)}
 			/>
@@ -156,8 +156,8 @@ export default function AnimalSpecies() {
 							<TableRow>
 								<TableCell>STT</TableCell>
 								<TableCell >Họ động vật</TableCell>
-								<TableCell ></TableCell>
-								<TableCell ></TableCell>
+								<TableCell style={{width: '5%'}}></TableCell>
+								<TableCell style={{width: '5%'}}></TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>
