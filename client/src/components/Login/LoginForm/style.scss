@@ -88,7 +88,8 @@
 				opacity: 0.8;
 			}
 			&:hover {
-				background-color: var(--dark-success);
+				// background-color: var(--dark-success);
+				transform: scale(1.05);
 			}
 		}
 		.error-message {

@@ -5,6 +5,7 @@ const initState = {
         username:'',
         password:''
     },
+    isError:false,
     isAuth:false,
     loading:false,
 }
@@ -16,21 +17,29 @@ const sleep = (milliseconds) => {
 export const signInUser = createAsyncThunk(
 	'auth/signInUser',
 	async (data, thunkAPI) => {
-        const { isRemember } = data
+        const { isRemember,username,password } = data
+        await sleep(1000)
+        console.log(data)
 		try{
-            await sleep(500)
-            if(isRemember){
-                localStorage.setItem('accessToken',JSON.stringify(data))
-            }
-            else
-                sessionStorage.setItem('accessToken',JSON.stringify(data))
+            if(username === 'admin123' && password === 'admin123')
+            {
+                if(isRemember){
+                    localStorage.setItem('accessToken',JSON.stringify(data))
+                }
+                else
+                    sessionStorage.setItem('accessToken',JSON.stringify(data))
 
-            return data
+                return data
+            }
+            else{
+                throw 'Đăng nhập thất bại';
+            }
         }
         catch(err){
             localStorage.removeItem('accessToken')
+            sessionStorage.removeItem('accessToken')
+            return thunkAPI.rejectWithValue(err)
         }
-        return 
 	}
 )
 
@@ -50,7 +59,16 @@ const auth = createSlice({
         loadLogin:(state,action)=>{
             const acccessToken = localStorage.getItem('accessToken') || sessionStorage.getItem('accessToken')
             if(acccessToken !=null){
-                return {...state,isAuth:true,loading:true}
+                const {username,password} = JSON.parse(acccessToken)
+                if(username === 'admin123' && password === 'admin123')
+                {
+                    return {...state,isAuth:true,loading:true}
+                }
+                else{
+                    localStorage.removeItem('accessToken')
+                    sessionStorage.removeItem('accessToken')
+                    return initState
+                }
             }
         },
     },
@@ -61,11 +79,13 @@ const auth = createSlice({
         [signInUser.fulfilled]: (state, action) => {
             state.isAuth = true
 			state.loading = false
+            state.isError = null
             state.user = state.payload
 		},
 		[signInUser.rejected]: (state, action) => {
             state.loading = false
             state.isAuth = false
+            state.isError = action.payload
 		},
     }
 })

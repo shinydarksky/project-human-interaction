@@ -145,8 +145,8 @@ export default function AnimalBoard() {
             <div className="grid-layout">
                 <div className="container">
                     <div className="row">{renderCardList()}</div>
+                    <Pagination count={10} showFirstButton showLastButton />
                 </div>
-                <Pagination count={10} showFirstButton showLastButton />
             </div>
         </div>
     )

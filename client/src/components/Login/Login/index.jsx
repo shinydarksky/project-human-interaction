@@ -11,22 +11,27 @@ import { signInUser } from '../../../redux/authSlice'
 function LoginPage() {
 	const dispatch = useDispatch()
 	
-	const { loading } = useSelector(state => state.auth)
+	const { loading,isError } = useSelector(state => state.auth)
 
 	async function handleSubmit(values) {
 		const newLogin = signInUser(values)
-		await dispatch(newLogin).unwrap()
+		await dispatch(newLogin)
+		if(isError){
+			alert(isError)
+		}
 	}
 
 	useEffect(()=>{
-		const acccessToken = localStorage.getItem('accessToken')
-		dispatch(signInUser(acccessToken))
+		const acccessToken = localStorage.getItem('accessToken') || sessionStorage.getItem('accessToken')
+		if(acccessToken){
+			dispatch(signInUser(JSON.parse(acccessToken)))
+		}
 	},[dispatch])
 
 	
 	return (
 		<div className="login">
-			<LoginForm onSubmit={handleSubmit} submitLoading={loading}  />
+			<LoginForm onSubmit={handleSubmit} submitLoading={loading} />
 		</div>
 	)
 }
