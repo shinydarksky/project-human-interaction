@@ -41,6 +41,7 @@ export default function AnimalSpecies() {
 		}
 	}, [])
 
+
 	function createData(name, calories, id, carbs, protein) {
 		return { name, calories, id, carbs, protein };
 	}

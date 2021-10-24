@@ -8,6 +8,7 @@ import Ecommerce from "./components/Ecommerce";
 import { animals } from '../src/pages/data'
 import { useDispatch } from 'react-redux'
 import { setAnimal } from './redux/animalSlice'
+// import { signInUser } from './redux/authSlice'
 function App() {
 	const dispatch = useDispatch()
 	useEffect(() => {
