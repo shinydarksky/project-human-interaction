@@ -4,29 +4,33 @@ import PropTypes from 'prop-types'
 
 AnimalCard.propTypes = {
 	animal: PropTypes.object,
+	onEdit: PropTypes.func,
+	onDelete: PropTypes.func,
 }
 
 AnimalCard.defaultProps = {
 	animal: null,
+	onEdit: () => {},
+	onDelete: () => {},
 }
 
 function AnimalCard(props) {
-	const { animal } = props
+	const { animal, onEdit, onDelete } = props
 
 	if (!animal) return null
 	return (
 		<div className="animal-card">
-			{
-				props.isadmin && <div className="gp-edit">
-					<button>Sửa</button>
-					<button>Xóa</button>
+			{props.isadmin && (
+				<div className="gp-edit">
+					<button onClick={() => onEdit(animal)}>Sửa</button>
+					<button onClick={() => onDelete(animal.ma_dv)}>Xóa</button>
 				</div>
-			}
+			)}
 			<div className="animal-card__image">
-				<img src={animal.image} alt="Animal" />
+				<img src={animal.images[0].lien_ket} alt="Animal" />
 			</div>
 			<div className="animal-card__info">
-				<p className="animal-name">{animal.name}</p>
+				<p className="animal-name">{animal.ten_dv}</p>
 			</div>
 		</div>
 	)

@@ -9,7 +9,8 @@ CREATE TABLE DONG_VAT (
   mo_ta varchar(1000),
   dia_diem varchar(256),
   ma_ho int NOT NULL,
-  FOREIGN KEY (ma_ho) REFERENCES HO_DV(ma_ho)
+  FOREIGN KEY (ma_ho) REFERENCES HO_DV(ma_ho) 
+  ON DELETE CASCADE
 );
 
 CREATE TABLE ANH_DV (
@@ -17,4 +18,5 @@ CREATE TABLE ANH_DV (
   lien_ket varchar(1000) NOT NULL,
   ma_dv int NOT NULL,
   FOREIGN KEY (ma_dv) REFERENCES DONG_VAT(ma_dv)
+  ON DELETE CASCADE
 );

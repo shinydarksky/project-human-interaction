@@ -4,16 +4,17 @@ import AdminPage from './pages/AdminPage'
 import HomePage from './pages/HomePage'
 import Auth from './pages/Auth'
 import 'bootstrap/scss/bootstrap-grid.scss'
-import Ecommerce from "./components/Ecommerce";
-import { animals } from '../src/pages/data'
+import Ecommerce from './components/Ecommerce'
 import { useDispatch } from 'react-redux'
-import { setAnimal } from './redux/animalSlice'
-// import { signInUser } from './redux/authSlice'
+import { getAnimalList } from './redux/animalSlice'
+
 function App() {
 	const dispatch = useDispatch()
+
 	useEffect(() => {
-		dispatch(setAnimal(animals))
+		dispatch(getAnimalList())
 	})
+
 	return (
 		<div className="App">
 			<Router>
@@ -25,10 +26,9 @@ function App() {
 						render={props => <Auth {...props} authRoute="login" />}
 					/>
 					<Route exact path="/admin" component={AdminPage} />
-					<Route exact path='/detail' component={Ecommerce} />
+					<Route exact path="/detail" component={Ecommerce} />
 				</Switch>
 			</Router>
-
 		</div>
 	)
 }

@@ -4,9 +4,16 @@
 	background-color: white;
 	overflow: hidden;
 	position: relative;
+	transition: transform 0.25s ease;
+
 	&__image {
+		height: 100px;
+
 		img {
+			display: block;
 			width: 100%;
+			height: 100%;
+			object-fit: cover;
 		}
 	}
 	&__info {
@@ -14,11 +21,11 @@
 		text-align: center;
 	}
 
-	.gp-edit{		
+	.gp-edit {
 		display: none;
 		position: absolute;
 		right: 0;
-		button{
+		button {
 			width: 40px;
 			height: 30px;
 			border: none;
@@ -29,11 +36,11 @@
 		margin: 2px 0;
 	}
 
-	&:hover .gp-edit{
+	&:hover .gp-edit {
 		display: block;
 	}
 }
 
-.animal-card:hover{
+.animal-card:hover {
 	transform: scale(1.05);
 }
