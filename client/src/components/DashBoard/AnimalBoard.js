@@ -18,9 +18,15 @@ export default function AnimalBoard() {
 
 	const [animalFamily, setAnimalFamily] = useState([])
 
+	const [page, setPage] = useState(1);
+	const handleChange = (event, value) => {
+		setPage(value);
+	};
+
 	const dispatch = useDispatch()
 	let animals = useSelector(state => state.animals.animalList)
-
+	let totalPage = animals.length % 12 == 0 ? (animals.length - animals.length%12)/12 : (animals.length - animals.length%12)/12 + 1
+	animals = animals.slice((page-1)*12, page*12);
 	useEffect(() => {
 		function loadData() {
 			axios
@@ -55,6 +61,7 @@ export default function AnimalBoard() {
 						animal={animal}
 						isadmin={true}
 						onEdit={handleEditAnimal}
+						onDelete={handleDeleteAnimal}
 					/>
 				</div>
 			)
@@ -103,6 +110,16 @@ export default function AnimalBoard() {
 		}
 	}
 
+	async function handleDeleteAnimal(id) {
+		try {
+			const response = await animalAPI.deleteAnimal(id)
+			dispatch(getAnimalList())
+			alert(response.data.message)
+		} catch (err) {
+			alert('Đã xảy ra lỗi!')
+		}
+	}
+
 	return (
 		<div>
 			<div className="title">
@@ -122,7 +139,7 @@ export default function AnimalBoard() {
 			<div className="grid-layout">
 				<div className="container">
 					<div className="row">{renderCardList()}</div>
-					<Pagination count={10} showFirstButton showLastButton />
+					<Pagination count={totalPage} showFirstButton showLastButton onChange={handleChange}/>
 				</div>
 			</div>
 			<Dialog open={open} onClose={handleClose}>
