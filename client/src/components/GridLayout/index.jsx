@@ -35,7 +35,7 @@ function GridLayout(props) {
 				<div className="col-6 col-sm-4 col-md-2 grid-layout__column" key={index}>
 					<Link to={{
 						pathname: "/detail",
-						search: "?id=" + animal.id,
+						search: "?id=" + animal.ten_dv,
 					}}>
 						<AnimalCard animal={animal} />
 					</Link>
