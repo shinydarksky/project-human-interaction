@@ -18,7 +18,8 @@ const animal = createSlice({
 	initialState: {
 		animalList: [],
 	},
-	reducers: {},
+	reducers: {
+	},
 	extraReducers: {
 		[getAnimalList.fulfilled]: (state, action) => {
 			state.animalList = action.payload
@@ -26,6 +27,7 @@ const animal = createSlice({
 	},
 })
 
-const { reducer } = animal
+const { reducer} = animal
+
 
 export default reducer

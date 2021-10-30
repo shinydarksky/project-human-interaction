@@ -7,7 +7,7 @@ Search.propTypes = {
 }
 
 Search.defaultProps = {
-	onSearch: () => {},
+	onSearch: () => { },
 }
 
 function Search(props) {
@@ -23,6 +23,11 @@ function Search(props) {
 		onSearch(searchValue)
 	}
 
+	function onEnter(e){
+		if(e.key==='Enter')
+			onSearch(searchValue)
+	}
+
 	return (
 		<div className="search">
 			<div className="container">
@@ -35,6 +40,7 @@ function Search(props) {
 							placeholder="Nhập tên con vật vào đây"
 							name="keyword"
 							onChange={handleInputChange}
+							onKeyDown={onEnter}
 						/>
 						<button className="btn btn--success" onClick={handleBtnClick}>
 							Tìm kiếm

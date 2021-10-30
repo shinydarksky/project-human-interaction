@@ -25,7 +25,7 @@ export default function AnimalBoard() {
 
 	const dispatch = useDispatch()
 	let animals = useSelector(state => state.animals.animalList)
-	let totalPage = animals.length % 12 == 0 ? (animals.length - animals.length%12)/12 : (animals.length - animals.length%12)/12 + 1
+	let totalPage = animals.length % 12 === 0 ? (animals.length - animals.length%12)/12 : (animals.length - animals.length%12)/12 + 1
 	animals = animals.slice((page-1)*12, page*12);
 	useEffect(() => {
 		function loadData() {

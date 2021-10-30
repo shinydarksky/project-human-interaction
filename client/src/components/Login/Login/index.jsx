@@ -4,7 +4,7 @@ import './style.scss'
 // HOOKS
 import { useDispatch, useSelector } from 'react-redux'
 // ACTIONS
-import { signInUser } from '../../../redux/authSlice'
+import { signInUser,loadLogin } from '../../../redux/authSlice'
 // UTILS
 // import customAlerts from 'utils/customAlerts'
 
@@ -14,19 +14,19 @@ function LoginPage() {
 	const { loading,isError } = useSelector(state => state.auth)
 
 	async function handleSubmit(values) {
-		const newLogin = signInUser(values)
-		await dispatch(newLogin)
-		if(isError){
-			alert(isError)
-		}
+		await dispatch( signInUser(values))
+		console.log(isError)
 	}
 
 	useEffect(()=>{
 		const acccessToken = localStorage.getItem('accessToken') || sessionStorage.getItem('accessToken')
 		if(acccessToken){
-			dispatch(signInUser(JSON.parse(acccessToken)))
+			dispatch(loadLogin(JSON.parse(acccessToken)))
 		}
-	},[dispatch])
+		if(isError){
+			alert(isError)
+		}
+	},[dispatch,isError])
 
 	
 	return (

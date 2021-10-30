@@ -19,7 +19,6 @@ export const signInUser = createAsyncThunk(
 	async (data, thunkAPI) => {
         const { isRemember,username,password } = data
         await sleep(1000)
-        console.log(data)
 		try{
             if(username === 'admin123' && password === 'admin123')
             {
@@ -32,7 +31,7 @@ export const signInUser = createAsyncThunk(
                 return data
             }
             else{
-                throw 'Đăng nhập thất bại';
+                throw  Error()
             }
         }
         catch(err){
@@ -75,17 +74,18 @@ const auth = createSlice({
     extraReducers:{
         [signInUser.pending]:state=>{
             state.loading = true
+            state.isError = false
         },
         [signInUser.fulfilled]: (state, action) => {
             state.isAuth = true
 			state.loading = false
-            state.isError = null
+            state.isError = false
             state.user = state.payload
 		},
 		[signInUser.rejected]: (state, action) => {
             state.loading = false
             state.isAuth = false
-            state.isError = action.payload
+            state.isError = true
 		},
     }
 })
