@@ -8,7 +8,7 @@
 .gp-btn {
 	display: flex;
 	justify-content: space-between;
-
+	
 	.add-animal-btn {
 		display: flex;
 		align-items: center;
@@ -35,4 +35,38 @@
 	.search-bar {
 		width: 800px;
 	}
+}
+
+.gp-btn-edit{
+	display: inline;
+
+	button{
+		background:none;
+		border: none;
+		margin: 15px;
+		margin-top: 20px;
+		img{
+			width: 30px;
+			height: 30px;
+		}
+	}
+	button:hover{
+		transform: scale(1.15)
+	}
+}
+
+.num_page{
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+}
+
+.search-input{
+	width: 50%;
+	margin: auto;
+}
+
+
+@media only screen and (max-width: 768px) {
+  
 }

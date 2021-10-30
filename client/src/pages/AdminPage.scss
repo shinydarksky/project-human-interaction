@@ -13,7 +13,7 @@
         margin: 10px auto;
         height: 30px;
         text-align: center;
-        background-color: dodgerblue;
+        background-color: #28A745;
         color: white;
         line-height:0;
         width: 100%;
@@ -27,8 +27,8 @@
 }
 
 .layout-tool{
-    border: 1px solid black;
-    height: 80vh;
+    box-shadow: 5px 5px 5px 5px rgb(161, 161, 161);
+    height: 91vh;
     margin: 0 auto;
 }
 
@@ -53,4 +53,13 @@
             padding: 0;
         }
     }
+    .layout-tool{
+        height: 100%;
+    }
 }
+
+
+.textInput{
+    width: 250px;
+}
+

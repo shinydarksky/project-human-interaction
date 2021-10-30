@@ -12,7 +12,7 @@ import {
 } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import axios from 'axios'
-
+import iconAdd from '../../assets/images/icon-add.png'
 const initNotify = {
 	type: '',
 	message: '',
@@ -113,8 +113,8 @@ export default function AnimalSpecies() {
 	}
 
 	function onClickDelete(id) {
-		setLoading(true)
 		if (window.confirm('Xác nhận xóa Họ động vật')) {
+			setLoading(true)
 			axios.delete('http://localhost:8080/animalFamily/deleteAnimalFamily?ma_ho=' + id)
 				.then(({ data }) => {
 					eventNotify(data)
@@ -133,32 +133,36 @@ export default function AnimalSpecies() {
 			<div className="title">
 				<h3>Quản lý danh sách Họ động vật</h3>
 			</div>
-			<TextField id="demo-helper-text-misaligned-no-helper" label="Nhập Họ động vật"
+			<TextField
+				className="textInput"
+				label="Nhập Họ động vật"
 				value={speciesText}
 				onChange={(e) => setSpeciesText(e.target.value)}
 			/>
-			<div className="gp-btn">
+			<div className="gp-btn-edit">
 				{isEdit ?
-					<div>
+					<>
 						<button onClick={handleEdit}
 						>Chỉnh sửa</button>
 						<button onClick={onClickCancel}>Hủy</button>
-					</div> :
-					<button onClick={handleAddSpecies}>Thêm</button>
+					</> :
+					<button variant="outlined" color="succeess" onClick={handleAddSpecies}>
+						<img src={iconAdd}/>
+					</button>
 
 				}
 			</div>
 
 
-			<div style={{ overflow: 'auto', height: 400 }}>
+			<div style={{ overflow: 'auto', height: 500 }}>
 				<TableContainer component={Paper}>
 					<Table sx={{ minWidth: 650 }} aria-label="simple table">
 						<TableHead>
 							<TableRow>
 								<TableCell>STT</TableCell>
 								<TableCell >Họ động vật</TableCell>
-								<TableCell style={{width: '5%'}}></TableCell>
-								<TableCell style={{width: '5%'}}></TableCell>
+								<TableCell style={{ width: '5%' }}></TableCell>
+								<TableCell style={{ width: '5%' }}></TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>

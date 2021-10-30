@@ -15,7 +15,7 @@ export default function AnimalBoard() {
 	const [open, setOpen] = useState(false)
 	const [editAnimal, setEditAnimal] = useState(null)
 	const [editAnimalModal, setEditAnimalModal] = useState(false)
-
+	const [searchText, setSearchText] = useState('')
 	const [animalFamily, setAnimalFamily] = useState([])
 
 	const [page, setPage] = useState(1);
@@ -25,8 +25,8 @@ export default function AnimalBoard() {
 
 	const dispatch = useDispatch()
 	let animals = useSelector(state => state.animals.animalList)
-	let totalPage = animals.length % 12 === 0 ? (animals.length - animals.length%12)/12 : (animals.length - animals.length%12)/12 + 1
-	animals = animals.slice((page-1)*12, page*12);
+	let totalPage = animals.length % 12 === 0 ? (animals.length - animals.length % 12) / 12 : (animals.length - animals.length % 12) / 12 + 1
+	animals = animals.slice((page - 1) * 12, page * 12);
 	useEffect(() => {
 		function loadData() {
 			axios
@@ -120,26 +120,36 @@ export default function AnimalBoard() {
 		}
 	}
 
+	function handleSearch() {
+
+	}
+
 	return (
 		<div>
 			<div className="title">
 				<h3>Quản lý danh sách động vật</h3>
 			</div>
-			<div className="gp-btn">
-				<SearchBar placeholder="Tìm kiếm động vật" className="search-bar" />
-				<button
-					className="add-animal-btn"
-					onClick={handleClickOpen}
-					style={{ marginRight: 0 }}
-				>
-					<AddIcon />
-					Thêm
-				</button>
+			<div className="search-input">
+				<SearchBar placeholder="Tìm kiếm động vật" className="search-bar" onChange={(e) => setSearchText(e.target.value)} />
 			</div>
-			<div className="grid-layout">
+
+			<div className="grid-layout ">
 				<div className="container">
+					<div className="gp-btn">
+						<button
+							className="add-animal-btn"
+							onClick={handleClickOpen}
+							style={{marginBottom:'30px', height: 40 }}
+						>
+							<AddIcon />
+							Thêm
+						</button>
+
+					</div>
 					<div className="row">{renderCardList()}</div>
-					<Pagination count={totalPage} showFirstButton showLastButton onChange={handleChange}/>
+					<div className="num_page">
+						<Pagination count={totalPage} showFirstButton showLastButton onChange={handleChange} />
+					</div>
 				</div>
 			</div>
 			<Dialog open={open} onClose={handleClose}>

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setLogout, loadLogin } from '../redux/authSlice'
 import { useHistory } from 'react-router'
 import { Redirect } from "react-router-dom";
+import TopNav from '../components/TopNav'
 
 const AdminPage = () => {
     const [selectBoard, setSelectBoard] = useState(0)
@@ -22,17 +23,15 @@ const AdminPage = () => {
         return <Redirect to="/login"/>
     }
 
-
-
-
     const handdleSelectBoard = type => {
         setSelectBoard(type)
     }
 
     return (
         <div className="container-fluid justify-content-center align-items-center">
-            <div className="row">
-                <div className=" tool-bar col-md-3 col-sm-3" >
+            <TopNav/>
+            <div className="row" style={{marginTop:'65px'}}>
+                <div className=" tool-bar col-md-2 col-sm-3" >
                     <div className="tool-logo" >
                         Quản lý
                     </div>
@@ -60,7 +59,7 @@ const AdminPage = () => {
                         Đăng xuất
                     </div>
                 </div>
-                <div className="layout-tool col-sm-8 col-md-9">
+                <div className="layout-tool col-sm-9 col-md-10">
                     <div className="logo-mobile" >
                         <button>Mở</button>
                         Quản lý
