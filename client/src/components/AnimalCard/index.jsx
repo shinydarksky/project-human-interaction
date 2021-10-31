@@ -22,8 +22,12 @@ function AnimalCard(props) {
 		<div className="animal-card">
 			{props.isadmin && (
 				<div className="gp-edit">
-					<button onClick={() => onEdit(animal)}>Sửa</button>
-					<button onClick={() => onDelete(animal.ma_dv)}>Xóa</button>
+					<button className="edit-btn" onClick={() => onEdit(animal)}>
+						Sửa
+					</button>
+					<button className="delete-btn" onClick={() => onDelete(animal.ma_dv)}>
+						Xóa
+					</button>
 				</div>
 			)}
 			<div className="animal-card__image">

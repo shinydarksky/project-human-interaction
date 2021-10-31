@@ -1,6 +1,6 @@
 .animal-card {
 	border-radius: 6px;
-	border: 1px solid #ccc;
+	box-shadow: 0 0 3px 0 gray;
 	background-color: white;
 	overflow: hidden;
 	position: relative;
@@ -32,8 +32,28 @@
 			margin: 0 2px;
 			border-radius: 5px;
 			cursor: pointer;
+			background-color: white;
 		}
 		margin: 2px 0;
+
+		.edit-btn {
+			color: #3f51b5;
+			border: 1px solid #3f51b5;
+
+			&:hover {
+				border: 1px solid #3f51b5;
+				background-color: #cfd6fd;
+			}
+		}
+		.delete-btn {
+			color: #f50057;
+			border: 1px solid #f50057;
+
+			&:hover {
+				border: 1px solid #f50057;
+				background-color: #ffdce8;
+			}
+		}
 	}
 
 	&:hover .gp-edit {

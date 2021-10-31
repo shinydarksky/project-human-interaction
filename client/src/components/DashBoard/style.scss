@@ -5,10 +5,23 @@
 	font-weight: 500;
 }
 
+.manage-wrap {
+	display: flex;
+	align-items: flex-end;
+
+	.gp-btn {
+		margin-left: 16px;
+		height: 40px;
+	}
+	.MuiFormControl-root {
+		width: 350px;
+	}
+}
+
 .gp-btn {
 	display: flex;
 	justify-content: space-between;
-	
+
 	.add-animal-btn {
 		display: flex;
 		align-items: center;
@@ -37,36 +50,69 @@
 	}
 }
 
-.gp-btn-edit{
-	display: inline;
+.gp-btn-edit {
+	margin-left: 16px;
+	height: 40px;
 
-	button{
-		background:none;
+	.add-btn,
+	.edit-btn,
+	.cancel-btn {
+		display: inline-block;
+		border-radius: 4px;
 		border: none;
-		margin: 15px;
-		margin-top: 20px;
-		img{
-			width: 30px;
-			height: 30px;
+		padding: 8px 16px;
+		height: 100%;
+
+		color: white;
+		font-size: 1rem;
+		font-weight: 500;
+
+		user-select: none;
+		cursor: pointer;
+	}
+	.add-btn {
+		color: var(--success);
+		background-color: white;
+		border: 1px solid var(--success);
+
+		&:hover {
+			border: 1px solid green;
+			background-color: rgba(7, 139, 36, 0.04);
 		}
 	}
-	button:hover{
-		transform: scale(1.15)
+	.edit-btn {
+		color: #3f51b5;
+		border: 1px solid #3f51b5;
+		background-color: white;
+
+		&:hover {
+			border: 1px solid #3f51b5;
+			background-color: rgba(63, 81, 181, 0.04);
+		}
+	}
+	.cancel-btn {
+		margin-left: 16px;
+		color: #f50057;
+		border: 1px solid #f50057;
+		background-color: white;
+
+		&:hover {
+			border: 1px solid #f50057;
+			background-color: rgba(245, 0, 87, 0.04);
+		}
 	}
 }
 
-.num_page{
+.num_page {
 	display: flex;
 	justify-content: center;
 	padding: 20px;
 }
 
-.search-input{
+.search-input {
 	width: 50%;
 	margin: auto;
 }
 
-
 @media only screen and (max-width: 768px) {
-  
 }

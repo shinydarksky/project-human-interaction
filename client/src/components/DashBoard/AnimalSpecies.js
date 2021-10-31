@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import {
 	TextField,
 	TableContainer,
@@ -9,14 +9,14 @@ import {
 	TableBody,
 	Paper,
 	Button,
-} from '@material-ui/core';
-import Alert from '@material-ui/lab/Alert';
+} from '@material-ui/core'
+import Alert from '@material-ui/lab/Alert'
 import axios from 'axios'
 import iconAdd from '../../assets/images/icon-add.png'
 const initNotify = {
 	type: '',
 	message: '',
-	isNotify: false
+	isNotify: false,
 }
 
 export default function AnimalSpecies() {
@@ -27,7 +27,8 @@ export default function AnimalSpecies() {
 	const [idEdit, setIdEdit] = useState()
 	const [loading, setLoading] = useState(false)
 	function loadData() {
-		axios.get('http://localhost:8080/animalFamily/getAnimalFamilyList')
+		axios
+			.get('http://localhost:8080/animalFamily/getAnimalFamilyList')
 			.then(({ data }) => {
 				setData(data.content)
 			})
@@ -36,14 +37,11 @@ export default function AnimalSpecies() {
 	useEffect(() => {
 		loadData()
 
-		return () => {
-
-		}
+		return () => {}
 	}, [])
 
-
 	function createData(name, calories, id, carbs, protein) {
-		return { name, calories, id, carbs, protein };
+		return { name, calories, id, carbs, protein }
 	}
 
 	// var rows = [
@@ -53,7 +51,6 @@ export default function AnimalSpecies() {
 	// 	createData(4, 305, 3.7, 67, 4.3),
 	// 	createData(5, 356, 16.0, 49, 3.9),
 	// ]
-
 
 	let rows = []
 
@@ -67,7 +64,7 @@ export default function AnimalSpecies() {
 		setShowNotify({
 			type: 'success',
 			isNotify: true,
-			message: data.message
+			message: data.message,
 		})
 
 		setLoading(false)
@@ -77,11 +74,15 @@ export default function AnimalSpecies() {
 	function handleAddSpecies() {
 		if (window.confirm('Xác nhận thêm Họ động vật')) {
 			setLoading(true)
-			axios.post('http://localhost:8080/animalFamily/insertAnimalFamily', { ten_ho: speciesText })
+			axios
+				.post('http://localhost:8080/animalFamily/insertAnimalFamily', {
+					ten_ho: speciesText,
+				})
 				.then(({ data }) => {
 					eventNotify(data)
 					loadData()
-				}).catch((err) => {
+				})
+				.catch(err => {
 					eventNotify(err)
 				})
 		}
@@ -101,11 +102,16 @@ export default function AnimalSpecies() {
 
 	function handleEdit() {
 		setLoading(true)
-		axios.put('http://localhost:8080/animalFamily/updateAnimalFamily', { ten_ho: speciesText, ma_ho: idEdit })
+		axios
+			.put('http://localhost:8080/animalFamily/updateAnimalFamily', {
+				ten_ho: speciesText,
+				ma_ho: idEdit,
+			})
 			.then(({ data }) => {
 				eventNotify(data)
 				loadData()
-			}).catch((err) => {
+			})
+			.catch(err => {
 				eventNotify(err)
 			})
 		setIsEdit(false)
@@ -115,73 +121,100 @@ export default function AnimalSpecies() {
 	function onClickDelete(id) {
 		if (window.confirm('Xác nhận xóa Họ động vật')) {
 			setLoading(true)
-			axios.delete('http://localhost:8080/animalFamily/deleteAnimalFamily?ma_ho=' + id)
+			axios
+				.delete(
+					'http://localhost:8080/animalFamily/deleteAnimalFamily?ma_ho=' + id
+				)
 				.then(({ data }) => {
 					eventNotify(data)
 					loadData()
-				}).catch((err) => {
+				})
+				.catch(err => {
 					eventNotify(err)
 				})
-
 		}
 	}
 
 	return (
 		<div>
-			{showNotify.isNotify && <Alert severity={showNotify.type}>{showNotify.message}</Alert>}
-			{loading && <Alert severity="warning">"Đang thực hiện thao tác vui lòng chờ"</Alert>}
+			{showNotify.isNotify && (
+				<Alert severity={showNotify.type}>{showNotify.message}</Alert>
+			)}
+			{loading && (
+				<Alert severity="warning">"Đang thực hiện thao tác vui lòng chờ"</Alert>
+			)}
 			<div className="title">
 				<h3>Quản lý danh sách Họ động vật</h3>
 			</div>
-			<TextField
-				className="textInput"
-				label="Nhập Họ động vật"
-				value={speciesText}
-				onChange={(e) => setSpeciesText(e.target.value)}
-			/>
-			<div className="gp-btn-edit">
-				{isEdit ?
-					<>
-						<button onClick={handleEdit}
-						>Chỉnh sửa</button>
-						<button onClick={onClickCancel}>Hủy</button>
-					</> :
-					<button variant="outlined" color="succeess" onClick={handleAddSpecies}>
-						<img src={iconAdd}/>
-					</button>
 
-				}
+			<div className="manage-wrap">
+				<TextField
+					className="textInput"
+					variant="outlined"
+					size="small"
+					label="Nhập Họ động vật"
+					value={speciesText}
+					onChange={e => setSpeciesText(e.target.value)}
+				/>
+				<div className="gp-btn-edit">
+					{isEdit ? (
+						<>
+							<button className="edit-btn" onClick={handleEdit}>
+								Chỉnh sửa
+							</button>
+							<button className="cancel-btn" onClick={onClickCancel}>
+								Hủy
+							</button>
+						</>
+					) : (
+						<button
+							variant="outlined"
+							color="succeess"
+							onClick={handleAddSpecies}
+							className="add-btn"
+						>
+							Thêm
+						</button>
+					)}
+				</div>
 			</div>
-
 
 			<div style={{ overflow: 'auto', height: 500 }}>
 				<TableContainer component={Paper}>
 					<Table sx={{ minWidth: 650 }} aria-label="simple table">
 						<TableHead>
 							<TableRow>
-								<TableCell>STT</TableCell>
-								<TableCell >Họ động vật</TableCell>
+								<TableCell style={{ width: '100px' }}>STT</TableCell>
+								<TableCell>Họ động vật</TableCell>
 								<TableCell style={{ width: '5%' }}></TableCell>
 								<TableCell style={{ width: '5%' }}></TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>
-							{rows.map((row) => (
+							{rows.map(row => (
 								<TableRow
 									key={row.name}
 									sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
 								>
-									<TableCell >{row.name}</TableCell>
-									<TableCell >{row.calories}</TableCell>
-									<TableCell >
-										<Button variant="outlined" color="primary"
+									<TableCell>{row.name}</TableCell>
+									<TableCell>{row.calories}</TableCell>
+									<TableCell>
+										<Button
+											variant="outlined"
+											color="primary"
 											onClick={() => onClickEdit(row.id, row.calories)}
-										>Sửa</Button>
+										>
+											Sửa
+										</Button>
 									</TableCell>
-									<TableCell >
-										<Button variant="outlined" color="secondary"
+									<TableCell>
+										<Button
+											variant="outlined"
+											color="secondary"
 											onClick={() => onClickDelete(row.id)}
-										>Xóa</Button>
+										>
+											Xóa
+										</Button>
 									</TableCell>
 								</TableRow>
 							))}
