@@ -121,7 +121,7 @@ export default function AnimalBoard() {
 	}
 
 	function handleSearch() {
-
+		console.log(searchText);
 	}
 
 	return (
@@ -146,7 +146,7 @@ export default function AnimalBoard() {
 						</button>
 
 					</div>
-					<div className="row">{renderCardList()}</div>
+					<div className="row" style={{minHeight:360}}>{renderCardList()}</div>
 					<div className="num_page">
 						<Pagination count={totalPage} showFirstButton showLastButton onChange={handleChange} />
 					</div>

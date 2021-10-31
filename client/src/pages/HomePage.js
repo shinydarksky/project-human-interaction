@@ -3,6 +3,7 @@ import './HomePage.scss'
 // COMPONENTS
 import TopNav from '../components/TopNav'
 import Search from '../components/Search'
+import SearchAlphabet from '../components/SearchAlphabet'
 import GridLayout from '../components/GridLayout'
 import { menu } from './data'
 import { useSelector } from 'react-redux'
@@ -28,6 +29,7 @@ const HomePage = () => {
 		<div className="home-page">
 			<TopNav menu={menu} />
 			<Search onSearch={handleSearch} />
+			<SearchAlphabet onClickLetter={e=>setSearchText(e)}/>
 			<GridLayout
 				animals={animals}
 				currentPage={currentPage - 1}

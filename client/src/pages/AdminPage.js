@@ -8,7 +8,7 @@ import { Redirect } from "react-router-dom";
 import TopNav from '../components/TopNav'
 
 const AdminPage = () => {
-    const [selectBoard, setSelectBoard] = useState(0)
+    const [selectBoard, setSelectBoard] = useState(2)
     const dispatch = useDispatch()
     const history = useHistory()
 
@@ -36,6 +36,11 @@ const AdminPage = () => {
                         Quản lý
                     </div>
                     <div className="tool-item"
+                        onClick={() => handdleSelectBoard(2)}
+                    >
+                        Thông tin
+                    </div>
+                    <div className="tool-item"
                         onClick={() => handdleSelectBoard(0)}
                     >
                         Danh sách động vật
@@ -45,11 +50,7 @@ const AdminPage = () => {
                     >
                         Danh sách loài
                     </div>
-                    <div className="tool-item"
-                        onClick={() => handdleSelectBoard(2)}
-                    >
-                        Cài đặt
-                    </div>
+                   
                     <div className="tool-item"
                         onClick={() => {
                             dispatch(setLogout())

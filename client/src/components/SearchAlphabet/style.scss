@@ -1,0 +1,45 @@
+.main-alpha{
+
+    .title{
+        margin: 10px;
+
+        span{
+            color:red;
+            font-weight: bold;
+        }
+
+        button{
+            outline: none;
+            border: none;
+            background-color: rgb(52, 209, 117);
+            color: white;
+            border-radius: 3px;
+            margin:3px;
+            padding: 3px;
+        }
+    }
+
+    .alpha{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        .alpha-item{
+            width: 30px;
+            height: 30px;
+            margin: 3px;
+            padding: 5px;
+            text-align: center;
+            background-color: rgb(54, 202, 54);
+            cursor: pointer;
+            border-radius: 3px;
+            color: white;
+            font-weight: 600;
+        }
+    
+        .alpha-item:hover{
+            transform: scale(1.1);
+        }
+        margin-top: 10px;
+    }
+}

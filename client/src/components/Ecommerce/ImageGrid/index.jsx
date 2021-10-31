@@ -10,7 +10,7 @@ export default function ImageGrid({ images, onSelection }) {
                             width="100%"
                             src={image}
                             alt={image}
-                            style={{ border: 'solid 5px #eee', borderRadius: '5px'}}
+                            style={{ border: 'solid 5px #eee', borderRadius: '5px',maxWidth:'100px'}}
                             onClick={() => onSelection(idx)}
                         />
                     </Grid>

@@ -31,7 +31,7 @@ function AnimalCard(props) {
 				</div>
 			)}
 			<div className="animal-card__image">
-				<img src={animal.images[0].lien_ket} alt="Animal" />
+				<img src={animal.images[0] && animal.images[0].lien_ket} alt="Animal" />
 			</div>
 			<div className="animal-card__info">
 				<p className="animal-name">{animal.ten_dv}</p>
