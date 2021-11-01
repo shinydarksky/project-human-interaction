@@ -10,15 +10,14 @@ export default function InforImage({data}) {
          ten_dv = data.ten_dv
          mo_ta = data.mo_ta
          dia_diem = data.dia_diem
-         console.log(data)
     }
     return (
         <div>
             <Grid container direction="column" style={{height:"100%"}}>
-                <Typography variant="subtitle1">{'Cái gì đó'}</Typography>
+                <Typography variant="subtitle1">{'Thuộc họ: '}</Typography>
                 <Divider/>
                 <Box>
-                    <Typography variant="h5">{`Tên loài ${ten_dv}`}</Typography>
+                    <Typography variant="h5">{`Tên con vật ${ten_dv}`}</Typography>
                     <Typography variant="subtitle1">{`Mô tả: ${mo_ta}`}</Typography>
                     <Typography variant="subtitle1">{`Địa điểm sinh sống: ${dia_diem}`}</Typography>
                 </Box>

@@ -16,8 +16,8 @@ export default function SearchAlphabet({onClickLetter}) {
 
             </div>
             <div className="alpha">
-                {alphabet.map((item) => {
-                    return <div className="alpha-item" onClick={()=>{
+                {alphabet.map((item,idx) => {
+                    return <div className="alpha-item" key={idx} onClick={()=>{
                         onClickLetter(item)
                         setLetter(item)
                     }}>{item}</div>

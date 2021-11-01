@@ -12,8 +12,8 @@ export const menu = [
 		url: 'link3',
 	},
 	{
-		name: 'Item 4',
-		url: 'link4',
+		name: 'Họ động vật',
+		url: 'animalfamily',
 	},
 ]
 

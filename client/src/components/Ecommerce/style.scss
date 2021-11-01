@@ -1,0 +1,28 @@
+.wrap-content-aniaml{
+    min-height: 400px;
+
+    .home-button{
+        margin: 0 auto;
+        margin-top: 70px;
+        max-width: 110;
+        div{
+            border-bottom: 1px solid gray;
+            padding: 3px;
+            padding-bottom: 5px;
+            width: 120px;
+        }
+    }
+
+    .animal-main{
+        // box-shadow: 1px 2px 3px 4px rgb(160, 229, 151);
+        margin: 0 auto;
+        max-width: 1100px;
+        margin-top: 60px;
+
+        .animal-image-item{
+            img{
+                width: 3000px;
+            }
+        }
+    }
+}

@@ -16,7 +16,7 @@ function NavMenu(props) {
 	const { menu } = props
 
 	function renderMenu() {
-		return menu.map((item, index) => {
+		const menuLayout = menu.map((item, index) => {
 			return (
 				<li className="nav-menu__item" key={index}>
 					<Link to={item.url} className="nav-menu__link">
@@ -25,9 +25,15 @@ function NavMenu(props) {
 				</li>
 			)
 		})
+		menuLayout.push(<li key={99}>
+			<a className="nav-menu__link btn-login" href="/login">Quản lý</a>
+		</li>)
+		return menuLayout
 	}
 
-	return <ul className="nav-menu">{renderMenu()}</ul>
+	return <ul className="nav-menu">
+		{menu.length > 0 && renderMenu()}
+	</ul>
 }
 
 export default NavMenu

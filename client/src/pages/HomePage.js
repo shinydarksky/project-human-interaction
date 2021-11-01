@@ -7,6 +7,7 @@ import SearchAlphabet from '../components/SearchAlphabet'
 import GridLayout from '../components/GridLayout'
 import { menu } from './data'
 import { useSelector } from 'react-redux'
+import Footer from '../components/Footer'
 
 const HomePage = () => {
 	const [currentPage, setCurrentPage] = useState(1)
@@ -36,6 +37,7 @@ const HomePage = () => {
 				searchText={searchText}
 				onChangePage={onChangePage}
 			/>
+			<Footer/>
 		</div>
 	)
 }

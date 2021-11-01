@@ -6,6 +6,7 @@ import { setLogout, loadLogin } from '../redux/authSlice'
 import { useHistory } from 'react-router'
 import { Redirect } from "react-router-dom";
 import TopNav from '../components/TopNav'
+import Footer from '../components/Footer'
 
 const AdminPage = () => {
     const [selectBoard, setSelectBoard] = useState(2)
@@ -68,6 +69,7 @@ const AdminPage = () => {
                     <DashBoard boardType={selectBoard} />
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }

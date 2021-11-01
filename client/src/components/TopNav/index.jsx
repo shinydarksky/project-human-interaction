@@ -18,7 +18,7 @@ function TopNav(props) {
 	const { menu } = props
 
 	return (
-		<div className="top-nav">
+		<div className="top-nav" id="top">
 			<div className="container">
 				<div className="row justify-content-between">
 					<Link className="top-nav__logo" to="/">

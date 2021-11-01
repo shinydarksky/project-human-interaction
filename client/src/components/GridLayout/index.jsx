@@ -17,8 +17,8 @@ function GridLayout(props) {
 	const { animals, currentPage, searchText, onChangePage } = props
 	let totalPage = 0
 	function renderCardList() {
-		const first_num = currentPage * 24
-		const last_num = first_num + 24
+		const first_num = currentPage * 30
+		const last_num = first_num + 30
 		let temp = [...animals]
 
 		if (searchText.trim()) {
@@ -27,8 +27,7 @@ function GridLayout(props) {
 
 		const animalCurrent = temp.slice(first_num, last_num)
 
-		totalPage = Math.ceil(temp.length / 24)
-
+		totalPage = Math.ceil(temp.length / 30)
 
 		return animalCurrent.map((animal, index) => {
 			return (
@@ -43,6 +42,7 @@ function GridLayout(props) {
 			)
 		})
 	}
+
 
 	return (
 		<div className="grid-layout">
