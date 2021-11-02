@@ -70,12 +70,12 @@ export default function Ecommerce(props) {
                         item container
                         sm={12} md={6}
                         alignItems="center"
-                        justifyContent="center">
-
-                        <div>
+                        // justifyContent="center"
+                    >
+                        <div className="main-image" >
                             <MainImage src={images[selectImage]} />
                         </div>
-                        <div style={{ width: 400 }}>
+                        <div className="item-image" style={{ width: 400 }}>
                             {images.length > 1 &&
                                 <ImageGrind images={images} onSelection={image => setSelectImage(image)} />
                             }

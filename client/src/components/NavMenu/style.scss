@@ -1,7 +1,7 @@
 .nav-menu {
 	display: flex;
 	align-items: center;
-
+	justify-content: center;
 	&__link {
 		display: inline-block;
 		padding: 10px 16px;
@@ -15,5 +15,12 @@
 	}
 
 	.btn-login{
+	}
+
+	@media only screen and (max-width: 768px) {
+		width: 100%;
+		&__link {
+			padding-bottom: 20px;
+		}
 	}
 }
