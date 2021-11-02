@@ -3,7 +3,7 @@ import AnimalCard from '../AnimalCard'
 // import { Link } from 'react-router-dom'
 import './style.scss'
 import { Pagination } from '@material-ui/lab'
-export default function Suggestion({ animals, id = 70 }) {
+export default function Suggestion({ animals, id = 70,data }) {
     const [currentPage, setCurrentPage] = useState(1)
     let totalPage = 0
     const onChangePage = (event, value) => {
@@ -22,9 +22,12 @@ export default function Suggestion({ animals, id = 70 }) {
         let animalCurrent = animals
 
 
-        if (id) {
-            animalCurrent = animalCurrent.filter((animal) => (animal.ma_ho === id))
+        if (id && data) {
+            console.log(data);
+            animalCurrent = animalCurrent.filter((animal) => (animal.ma_ho === id && animal.ma_dv !== data.ma_dv))
         }
+
+
         totalPage = Math.ceil(animalCurrent.length / 6)
 
 

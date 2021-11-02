@@ -88,7 +88,7 @@ export default function Ecommerce(props) {
                 </Grid>
             </div>
 
-            <Suggestion animals={animals}  id={famiyName.ma_ho} />
+            <Suggestion animals={animals} data={data}  id={famiyName.ma_ho} />
             <Footer />
         </div>
     )
