@@ -6,3 +6,58 @@
 }
 
 
+.select-family{
+	height: 40px;
+	margin: 10px auto;
+
+	.select-famiy{
+		width: 300px;
+	}
+}
+
+
+
+.wrap-content{
+	min-height: 500px;
+
+	.wrap-family{
+		display: flex;
+		flex-wrap: wrap;
+		.family-item{
+			flex:20%;
+			margin: 20px;
+			padding:15px;
+			background-color:rgb(40, 175, 40);
+			min-height: 45px;
+			text-align: center;
+			color: white;
+			border-radius: 5px;
+			cursor: pointer;
+	
+			&:hover{
+				transform: scale(1.01);
+			}
+		}
+		
+	}
+	
+	.wrap-family-animal{
+		.title{
+			h3{
+				font-size: 24px;
+			}
+	
+			button{
+				width: 30px;
+				height: 30px;
+				margin: 5px;
+				padding: 0px;
+				font-size: 16px;
+				border-radius: 5px;
+				background: none;
+				outline: none;
+				cursor: pointer;
+			}
+		}
+	}
+}

@@ -10,6 +10,7 @@ import AddAnimalForm from '../Forms/AddAnimal'
 import animalAPI from '../../api/animalAPI'
 import { getAnimalList } from '../../redux/animalSlice'
 import EditAnimalForm from '../Forms/EditAnimal'
+import { apiUrls_animalfamily } from '../../api/apiUrls'
 
 export default function AnimalBoard() {
 	const [open, setOpen] = useState(false)
@@ -37,7 +38,7 @@ export default function AnimalBoard() {
 	useEffect(() => {
 		function loadData() {
 			axios
-				.get('http://localhost:8080/animalFamily/getAnimalFamilyList')
+				.get(`${apiUrls_animalfamily}/getAnimalFamilyList`)
 				.then(({ data }) => {
 					setAnimalFamily(data.content)
 				})

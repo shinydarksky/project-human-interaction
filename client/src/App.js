@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage'
 import Auth from './pages/Auth'
 import 'bootstrap/scss/bootstrap-grid.scss'
 import Ecommerce from './components/Ecommerce'
+import AnimalFamilyPage from './pages/AnimalFamilyPage'
 import { useDispatch } from 'react-redux'
 import { getAnimalList } from './redux/animalSlice'
 
@@ -26,6 +27,7 @@ function App() {
 						render={props => <Auth {...props} authRoute="login" />}
 					/>
 					<Route exact path="/admin" component={AdminPage} />
+					<Route exact path="/animalfamily" component={AnimalFamilyPage} />
 					<Route exact path="/detail" component={Ecommerce} />
 				</Switch>
 			</Router>

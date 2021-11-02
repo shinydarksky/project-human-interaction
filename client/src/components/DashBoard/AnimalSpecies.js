@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { apiUrls_animalfamily } from '../../api/apiUrls'
 import {
 	TextField,
 	TableContainer,
@@ -28,7 +29,7 @@ export default function AnimalSpecies() {
 	const [loading, setLoading] = useState(false)
 	function loadData() {
 		axios
-			.get('http://localhost:8080/animalFamily/getAnimalFamilyList')
+			.get(`${apiUrls_animalfamily}/getAnimalFamilyList`)
 			.then(({ data }) => {
 				setData(data.content)
 			})
@@ -36,7 +37,6 @@ export default function AnimalSpecies() {
 
 	useEffect(() => {
 		loadData()
-
 		return () => {}
 	}, [])
 
@@ -75,7 +75,7 @@ export default function AnimalSpecies() {
 		if (window.confirm('Xác nhận thêm Họ động vật')) {
 			setLoading(true)
 			axios
-				.post('http://localhost:8080/animalFamily/insertAnimalFamily', {
+				.post(`${apiUrls_animalfamily}/insertAnimalFamily`, {
 					ten_ho: speciesText,
 				})
 				.then(({ data }) => {
@@ -103,7 +103,7 @@ export default function AnimalSpecies() {
 	function handleEdit() {
 		setLoading(true)
 		axios
-			.put('http://localhost:8080/animalFamily/updateAnimalFamily', {
+			.put(`${apiUrls_animalfamily}/updateAnimalFamily`, {
 				ten_ho: speciesText,
 				ma_ho: idEdit,
 			})
@@ -123,7 +123,7 @@ export default function AnimalSpecies() {
 			setLoading(true)
 			axios
 				.delete(
-					'http://localhost:8080/animalFamily/deleteAnimalFamily?ma_ho=' + id
+					`${apiUrls_animalfamily}/deleteAnimalFamily?ma_ho=${id}`
 				)
 				.then(({ data }) => {
 					eventNotify(data)

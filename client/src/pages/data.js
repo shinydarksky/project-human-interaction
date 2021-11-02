@@ -1,7 +1,7 @@
 export const menu = [
 	{
-		name: 'Item 1',
-		url: 'link1',
+		name: 'Trang chủ',
+		url: '../',
 	},
 	{
 		name: 'Item 2',

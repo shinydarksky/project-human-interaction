@@ -10,9 +10,12 @@ import { useSelector } from 'react-redux'
 import TopNav from '../TopNav'
 import { menu } from '../../pages/data'
 import Suggestion from '../Suggestion'
-
+import axios from 'axios'
+import { apiUrls_animalfamily } from '../../api/apiUrls'
 export default function Ecommerce(props) {
     const [selectImage, setSelectImage] = useState(0)
+	const [animalFamily, setAnimalFamily] = useState([])
+
     const animals = useSelector(state => state.animals.animalList)
     const [data, setData] = useState()
 
@@ -30,6 +33,30 @@ export default function Ecommerce(props) {
         })
     }
 
+    useEffect(() => {
+		function loadData() {
+			axios
+				.get(`${apiUrls_animalfamily}/getAnimalFamilyList`)
+				.then(({ data }) => {
+					setAnimalFamily(data.content)
+				})
+		}
+		loadData()
+	}, [])
+
+    
+    let famiyName = {
+        ma_ho:'',
+        ten_ho:''
+    }
+
+    if(data && animalFamily){
+        const temp = animalFamily.find(element => element.ma_ho.toString() === data.ma_ho.toString())
+        if(temp){
+            famiyName = temp
+        }
+    }
+
     return (
         <div >
             <div className="wrap-content-aniaml" style={{ overflow: 'none' }}>
@@ -38,18 +65,17 @@ export default function Ecommerce(props) {
                     <div className="home-button"> <div>&#60; Trang chủ</div></div>
                 </a> */}
                 <Grid className="animal-main" container spacing={5}>
-                    <Grid className="animal-image" direction="column" item container sm={12} md={6} alignItems="center" justifyContent="center">
-                        {/* <Grid item  style={{margin:'0 auto'}} >
-                            <MainImage src={images[selectImage]} />
-                        </Grid >
-                        <Grid className="animal-image-item" item style={{ textAlign: 'center' }}>
-                            {images.length > 1 && <ImageGrind images={images} onSelection={image => setSelectImage(image)} />}
-                        </Grid> */}
+                    <Grid className="animal-image"
+                        direction="column"
+                        item container
+                        sm={12} md={6}
+                        alignItems="center"
+                        justifyContent="center">
 
                         <div>
                             <MainImage src={images[selectImage]} />
                         </div>
-                        <div style={{width:400}}>
+                        <div style={{ width: 400 }}>
                             {images.length > 1 &&
                                 <ImageGrind images={images} onSelection={image => setSelectImage(image)} />
                             }
@@ -57,17 +83,12 @@ export default function Ecommerce(props) {
                     </Grid>
 
                     <Grid className="animal-content" item sm={12} md={6} >
-                        <InforImage data={data} />
+                        <InforImage data={data} name={famiyName.ten_ho} />
                     </Grid >
-                    {/* <Grid item sm={4}>
-                    <div style={{width:'100%',height:'50px'}}>
-                        <Map arrLocation={[]}/>
-                    </div>
-                </Grid > */}
                 </Grid>
             </div>
 
-            <Suggestion animals={animals} />
+            <Suggestion animals={animals}  id={famiyName.ma_ho} />
             <Footer />
         </div>
     )

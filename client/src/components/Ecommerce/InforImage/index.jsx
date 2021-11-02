@@ -2,7 +2,7 @@ import { Divider, Grid, Typography,Box } from '@material-ui/core'
 import React from 'react'
 
 
-export default function InforImage({data}) {
+export default function InforImage({data,name}) {
     let ten_dv = ''
     let mo_ta = ''
     let dia_diem = ''
@@ -11,10 +11,11 @@ export default function InforImage({data}) {
          mo_ta = data.mo_ta
          dia_diem = data.dia_diem
     }
+
     return (
         <div>
             <Grid container direction="column" style={{height:"100%"}}>
-                <Typography variant="subtitle1">{'Thuộc họ: '}</Typography>
+                <Typography variant="subtitle1">{'Thuộc họ: '+name}</Typography>
                 <Divider/>
                 <Box>
                     <Typography variant="h5">{`Tên con vật ${ten_dv}`}</Typography>
