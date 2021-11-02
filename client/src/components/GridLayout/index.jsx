@@ -50,7 +50,7 @@ function GridLayout(props) {
 				<div className="row">{renderCardList()}</div>
 			</div>
 			<div className="num_page">
-				<Pagination count={totalPage} onChange={onChangePage} />
+				{totalPage>1 && <Pagination count={totalPage} onChange={onChangePage} />}
 			</div>
 		</div>
 	)

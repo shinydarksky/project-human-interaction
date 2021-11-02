@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import AnimalCard from '../AnimalCard'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import './style.scss'
 import { Pagination } from '@material-ui/lab'
 export default function Suggestion({ animals, id = 70 }) {

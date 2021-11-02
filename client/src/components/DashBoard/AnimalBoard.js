@@ -25,8 +25,15 @@ export default function AnimalBoard() {
 
 	const dispatch = useDispatch()
 	let animals = useSelector(state => state.animals.animalList)
+
+	if (searchText.trim()) {
+		animals = animals.filter((animal) => (animal.ten_dv.search(searchText) >= 0))
+	}
+
 	let totalPage = animals.length % 12 === 0 ? (animals.length - animals.length % 12) / 12 : (animals.length - animals.length % 12) / 12 + 1
+
 	animals = animals.slice((page - 1) * 12, page * 12);
+
 	useEffect(() => {
 		function loadData() {
 			axios
@@ -51,6 +58,7 @@ export default function AnimalBoard() {
 	}
 
 	function renderCardList() {
+
 		return animals.map((animal, index) => {
 			return (
 				<div
@@ -120,8 +128,9 @@ export default function AnimalBoard() {
 		}
 	}
 
-	function handleSearch() {
-		console.log(searchText);
+	function handleSearch(e) {
+		setSearchText(e);
+		setPage(1)
 	}
 
 	return (
@@ -130,7 +139,12 @@ export default function AnimalBoard() {
 				<h3>Quản lý danh sách động vật</h3>
 			</div>
 			<div className="search-input">
-				<SearchBar placeholder="Tìm kiếm động vật" className="search-bar" onChange={(e) => setSearchText(e.target.value)} />
+				<SearchBar
+					placeholder="Tìm kiếm động vật"
+					className="search-bar"
+					onChange={handleSearch}
+					onRequestSearch={handleSearch}
+				/>
 			</div>
 
 			<div className="grid-layout ">
@@ -139,16 +153,21 @@ export default function AnimalBoard() {
 						<button
 							className="add-animal-btn"
 							onClick={handleClickOpen}
-							style={{marginBottom:'30px', height: 40 }}
+							style={{ marginBottom: '30px', height: 40 }}
 						>
 							<AddIcon />
 							Thêm
 						</button>
 
 					</div>
-					<div className="row" style={{minHeight:360}}>{renderCardList()}</div>
+					<div className="row" style={{ minHeight: 360 }}>{renderCardList()}</div>
 					<div className="num_page">
-						<Pagination count={totalPage} showFirstButton showLastButton onChange={handleChange} />
+						{totalPage > 1 && <Pagination
+							count={totalPage}
+							showFirstButton
+							showLastButton
+							onChange={handleChange}
+						/>}
 					</div>
 				</div>
 			</div>
