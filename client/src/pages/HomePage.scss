@@ -45,10 +45,15 @@
 		.title{
 			h3{
 				font-size: 24px;
+
+			}
+
+			span{
+				color:red;
 			}
 	
 			button{
-				width: 30px;
+				width: 60px;
 				height: 30px;
 				margin: 5px;
 				padding: 0px;
@@ -57,6 +62,9 @@
 				background: none;
 				outline: none;
 				cursor: pointer;
+				background: var(--success);
+				color: white;
+				border: none;
 			}
 		}
 	}

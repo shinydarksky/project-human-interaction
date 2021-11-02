@@ -104,10 +104,10 @@ export default function AnimalFamilyPage() {
                     :
                     <div className="wrap-family-animal">
                         <div className="title">
-                            <h3>Danh sách động vật thuộc họ: {famiyName && famiyName.ten_ho}
+                            <h3>Danh sách động vật thuộc họ: <span>"{famiyName && famiyName.ten_ho}"</span>
                                 <button
                                     onClick={() => setSelectFamily('')}
-                                >x</button>
+                                >Xóa</button>
                             </h3>
 
                         </div>
