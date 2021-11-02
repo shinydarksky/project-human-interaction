@@ -136,7 +136,7 @@ export default function AnimalSpecies() {
 	}
 
 	return (
-		<div>
+		<div className="layout-animalfamily">
 			{showNotify.isNotify && (
 				<Alert severity={showNotify.type}>{showNotify.message}</Alert>
 			)}

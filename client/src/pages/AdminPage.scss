@@ -34,7 +34,21 @@
 	display: none;
 	font-size: 32px;
 	text-align: center;
-	margin: 20px;
+	position: absolute;	
+	left: 0;
+	width: 100%;
+	background-color:var(--green);
+
+	button{
+		background: none;
+		border: none;
+	}
+
+
+
+	img{
+		width: 35px;
+	}
 }
 
 @media only screen and (max-width: 768px) {
@@ -47,8 +61,16 @@
 
 		button {
 			float: left;
-			margin: 0;
-			padding: 0;
+			outline: none;
+			padding: 5px;
+		}
+
+		.title{
+			font-size: 28px;
+			font-weight: 700;
+			margin: 10px;
+			color: white;
+			padding-right: 30px;
 		}
 	}
 	.layout-tool {

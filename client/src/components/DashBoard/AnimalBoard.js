@@ -125,7 +125,7 @@ export default function AnimalBoard() {
 	}
 
 	return (
-		<div>
+		<div className="layout-animal">
 			<div className="title">
 				<h3>Quản lý danh sách động vật</h3>
 			</div>

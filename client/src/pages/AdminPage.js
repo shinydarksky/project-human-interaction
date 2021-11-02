@@ -7,7 +7,7 @@ import { useHistory } from 'react-router'
 import { Redirect } from "react-router-dom";
 import TopNav from '../components/TopNav'
 import Footer from '../components/Footer'
-
+import iconMenu from '../assets/images/icon-menu.png'
 const AdminPage = () => {
     const [selectBoard, setSelectBoard] = useState(2)
     const dispatch = useDispatch()
@@ -15,13 +15,13 @@ const AdminPage = () => {
 
     const { isAuth } = useSelector(state => state.auth)
 
-    function loadUser(){
-            dispatch(loadLogin())  
+    function loadUser() {
+        dispatch(loadLogin())
     }
-    useEffect(loadUser,[dispatch])
+    useEffect(loadUser, [dispatch])
 
-    if(!isAuth){
-        return <Redirect to="/login"/>
+    if (!isAuth) {
+        return <Redirect to="/login" />
     }
 
     const handdleSelectBoard = type => {
@@ -30,9 +30,9 @@ const AdminPage = () => {
 
     return (
         <div className="container-fluid justify-content-center align-items-center">
-            <TopNav/>
-            <div className="row" style={{marginTop:'65px'}}>
-                <div className=" tool-bar col-md-2 col-sm-3" >
+            <TopNav />
+            <div className="row" style={{ marginTop: '60px' }}>
+                <div className=" tool-bar col-md-2 col-sm-3"  >
                     <div className="tool-logo" >
                         Quản lý
                     </div>
@@ -51,7 +51,7 @@ const AdminPage = () => {
                     >
                         Danh sách loài
                     </div>
-                   
+
                     <div className="tool-item"
                         onClick={() => {
                             dispatch(setLogout())
@@ -63,13 +63,17 @@ const AdminPage = () => {
                 </div>
                 <div className="layout-tool col-sm-9 col-md-10">
                     <div className="logo-mobile" >
-                        <button>Mở</button>
-                        Quản lý
+                        <button>
+                            <img src={iconMenu} alt="icon-menu" />
+                        </button>
+                        <div className="title">
+                            Quản lý
+                        </div>
                     </div>
                     <DashBoard boardType={selectBoard} />
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </div>
     )
 }

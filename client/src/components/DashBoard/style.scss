@@ -127,4 +127,20 @@
 }
 
 @media only screen and (max-width: 768px) {
+
+	.search-input {
+		width: 100%;
+		margin: auto;
+	}
+	.layout-animal{
+		.title{
+			padding-top: 20px;
+		}
+	}
+
+	.layout-animalfamily{
+		.title{
+			padding-top: 20px;
+		}
+	}
 }

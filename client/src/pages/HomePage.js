@@ -30,14 +30,16 @@ const HomePage = () => {
 		<div className="home-page">
 			<TopNav menu={menu} />
 			<Search onSearch={handleSearch} />
-			<SearchAlphabet onClickLetter={e=>setSearchText(e)}/>
-			<GridLayout
-				animals={animals}
-				currentPage={currentPage - 1}
-				searchText={searchText}
-				onChangePage={onChangePage}
-			/>
-			<Footer/>
+			<SearchAlphabet onClickLetter={e => setSearchText(e)} />
+			<div className="home-animals">
+				<GridLayout
+					animals={animals}
+					currentPage={currentPage - 1}
+					searchText={searchText}
+					onChangePage={onChangePage}
+				/>
+			</div>
+			<Footer />
 		</div>
 	)
 }

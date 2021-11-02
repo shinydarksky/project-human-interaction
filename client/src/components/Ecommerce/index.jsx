@@ -49,7 +49,7 @@ export default function Ecommerce(props) {
                         <div>
                             <MainImage src={images[selectImage]} />
                         </div>
-                        <div>
+                        <div style={{width:400}}>
                             {images.length > 1 &&
                                 <ImageGrind images={images} onSelection={image => setSelectImage(image)} />
                             }
