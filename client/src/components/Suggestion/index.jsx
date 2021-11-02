@@ -46,7 +46,7 @@ export default function Suggestion({ animals, id = 70 }) {
                 </div>
             </div>
             <div className="num_page">
-                <Pagination count={totalPage} onChange={onChangePage} />
+                {totalPage > 1 && <Pagination count={totalPage} onChange={onChangePage} />}
             </div>
         </div>
     )
