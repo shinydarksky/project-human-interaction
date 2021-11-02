@@ -17,7 +17,7 @@ function App() {
 	})
 
 	return (
-		<div className="App">
+		<div className="App" style={{backgroundColor:'#e8f5e9'}}>
 			<Router>
 				<Switch>
 					<Route exact path="/" component={HomePage} />

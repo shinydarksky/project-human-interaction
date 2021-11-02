@@ -4,10 +4,10 @@ import React from 'react'
 export default function MainImage({ src }) {
     return (
         <Grid >
-            <img
+            <img 
                 width="100%"
                 src={src}
-                style={{ border: 'solid 10px #eee', borderRadius: '10px',maxWidth:'600px',maxHeight:'300px' }}
+                style={{  borderRadius: '10px',maxWidth:'600px',maxHeight:'300px' }}
                 alt={src}
             />
         </Grid>

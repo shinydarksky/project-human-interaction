@@ -59,7 +59,7 @@ export default function Ecommerce(props) {
 
     return (
         <div >
-            <div className="wrap-content-aniaml" style={{ overflow: 'none' }}>
+            <div className="wrap-content-animal" style={{ overflow: 'none' }}>
                 <TopNav menu={menu} />
                 {/* <a href="../">
                     <div className="home-button"> <div>&#60; Trang chủ</div></div>
