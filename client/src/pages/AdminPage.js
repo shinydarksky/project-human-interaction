@@ -10,6 +10,7 @@ import Footer from '../components/Footer'
 import iconMenu from '../assets/images/icon-menu.png'
 const AdminPage = () => {
     const [selectBoard, setSelectBoard] = useState(2)
+    const [openMenu, setOpenMenu] = useState(false)
     const dispatch = useDispatch()
     const history = useHistory()
 
@@ -27,6 +28,8 @@ const AdminPage = () => {
     const handdleSelectBoard = type => {
         setSelectBoard(type)
     }
+
+
 
     return (
         <div className="container-fluid justify-content-center align-items-center">
@@ -60,16 +63,40 @@ const AdminPage = () => {
                     >
                         Đăng xuất
                     </div>
+
+                </div>
+                <div className="logo-mobile" >
+                    <button onClick={() => setOpenMenu(!openMenu)}>
+                        <img src={iconMenu} alt="icon-menu" />
+                    </button>
+                    <div className="title">
+                        Quản lý
+                    </div>
+                    {openMenu &&
+                        <div className="mobile-menu">
+                            <div className="mobile-menu-item"
+                                onClick={() => handdleSelectBoard(2)}
+                            >
+                                Thông tin
+                            </div>
+                            <div className="mobile-menu-item"
+                                onClick={() => handdleSelectBoard(0)}
+                            >
+                                Danh sách động vật
+                            </div>
+                            <div className="mobile-menu-item"
+                                onClick={() => {
+                                    dispatch(setLogout())
+                                    history.replace('/login')
+                                }}
+                            >
+                                Đăng xuất
+                            </div>
+                        
+                        </div>}
+
                 </div>
                 <div className="layout-tool col-sm-9 col-md-10">
-                    <div className="logo-mobile" >
-                        <button>
-                            <img src={iconMenu} alt="icon-menu" />
-                        </button>
-                        <div className="title">
-                            Quản lý
-                        </div>
-                    </div>
                     <DashBoard boardType={selectBoard} />
                 </div>
             </div>

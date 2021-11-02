@@ -57,6 +57,11 @@
 		display: none;
 	}
 
+	#top{
+		// display: none !important;
+	}
+
+
 	.logo-mobile {
 		display: block;
 
@@ -72,6 +77,21 @@
 			margin: 10px;
 			color: white;
 			padding-right: 30px;
+		}
+
+		.mobile-menu{
+			width: 300px;
+			background-color: white;
+			position: absolute;
+			z-index: 99;
+			.mobile-menu-item{
+				font-size: 18px;
+				padding: 5px;
+				background: var(--success);
+				color: white;
+				text-align: left;
+				margin: 3px;
+			}
 		}
 	}
 	.layout-tool {

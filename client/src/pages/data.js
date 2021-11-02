@@ -3,14 +3,14 @@ export const menu = [
 		name: 'Trang chủ',
 		url: '../',
 	},
-	{
-		name: 'Item 2',
-		url: 'link2',
-	},
-	{
-		name: 'Item 3',
-		url: 'link3',
-	},
+	// {
+	// 	name: 'Item 2',
+	// 	url: 'link2',
+	// },
+	// {
+	// 	name: 'Item 3',
+	// 	url: 'link3',
+	// },
 	{
 		name: 'Họ động vật',
 		url: 'animalfamily',
