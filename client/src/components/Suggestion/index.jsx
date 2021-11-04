@@ -23,7 +23,7 @@ export default function Suggestion({ animals, id = 70,data }) {
 
 
         if (id && data) {
-            console.log(data);
+            // console.log(data);
             animalCurrent = animalCurrent.filter((animal) => (animal.ma_ho === id && animal.ma_dv !== data.ma_dv))
         }
 

@@ -179,7 +179,7 @@ export default function AnimalSpecies() {
 				</div>
 			</div>
 
-			<div style={{ overflow: 'auto', height: 500 }}>
+			<div style={{ overflow: 'auto', height: 500}} className="table-family">
 				<TableContainer component={Paper}>
 					<Table sx={{ minWidth: 650 }} aria-label="simple table">
 						<TableHead>

@@ -11,8 +11,8 @@ export default function Setting() {
                 <h3>Quản lý thông tin </h3>
             </div>
             <div className="content">
-                <p>Tổng số họ động là: {animals && animals.length}</p>
-                <p>Tổng số động vật là:</p>
+                <p>Tổng số họ động vật:</p>
+                <p>Tổng động vật là: {animals && animals.length}</p>
             </div>
         </div>
     )

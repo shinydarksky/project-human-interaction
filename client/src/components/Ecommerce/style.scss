@@ -22,6 +22,43 @@
                 img{
                     border: solid 10px rgb(247, 247, 247);
                 }
+                position: relative;
+                
+                .btn-slide{
+                    width: 30px;
+                    height: 30px;
+                    border: none;
+                    background-color: #cccccc;
+                    font-weight: bold;
+                    background-size: cover;
+                    border-radius: 5px;
+
+                }
+
+                .btn-left{
+                    position: absolute;
+                    left: -20px;
+                    top: 40%;
+                    background-image: url(../../assets/images/arrow-left.png);
+                   
+                    
+                }
+                .btn-right{
+                    position: absolute;
+                    right: -20px;
+                    top: 40%;
+                    background-image: url(../../assets/images/arrow-left.png);
+                    transform: rotate(180deg);
+                }
+
+                .btn-slide:hover{
+                    transform:scale(1.05);
+                    cursor: pointer;
+                }
+
+                .btn-right:hover{
+                    transform:scale(1.05) rotate(180deg);
+                }
             }
 
         

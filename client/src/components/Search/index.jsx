@@ -11,7 +11,7 @@ Search.defaultProps = {
 }
 
 function Search(props) {
-	const { onSearch } = props
+	const { onSearch,title } = props
 
 	const [searchValue, setSearchValue] = useState('')
 
@@ -32,7 +32,9 @@ function Search(props) {
 		<div className="search">
 			<div className="container">
 				<div className="search__container">
-					<h3 className="search__title">Tìm kiếm</h3>
+					{title && <a href="http://localhost:3000/animalfamily"><button className="button-back">Trở lại</button></a>}
+					<h3 className="search__title">{title ? `Danh sách động vật thuộc họ ${title}`   : 'Tìm kiếm' }</h3>
+					
 					<div className="search__group">
 						<input
 							className="input"

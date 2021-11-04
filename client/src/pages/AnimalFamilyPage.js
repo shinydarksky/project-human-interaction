@@ -95,7 +95,7 @@ export default function AnimalFamilyPage() {
     return (
         <div>
             <TopNav menu={menu} />
-            <Search onSearch={handleSearch} />
+            <Search onSearch={handleSearch} title={famiyName && famiyName.ten_ho} />
             <div className="wrap-content">
                 {!selectFamily ?
                     <div className="container wrap-family">
@@ -103,14 +103,14 @@ export default function AnimalFamilyPage() {
                     </div>
                     :
                     <div className="wrap-family-animal">
-                        <div className="title">
+                        {/* <div className="title">
                             <h3>Danh sách động vật thuộc họ: <span>"{famiyName && famiyName.ten_ho}"</span>
                                 <button
                                     onClick={() => setSelectFamily('')}
-                                >Xóa</button>
+                                >Trở lại</button>
                             </h3>
 
-                        </div>
+                        </div> */}
                         <div className="grid-layout">
                             <div className="container">
                                 <div className="row">{renderCardList()}</div>

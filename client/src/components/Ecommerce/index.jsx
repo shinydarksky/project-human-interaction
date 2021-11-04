@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Footer from '../Footer'
 import './style.scss'
 import { Grid } from '@material-ui/core'
-import ImageGrind from './ImageGrid'
+// import ImageGrind from './ImageGrid'
 import MainImage from './MainImage'
 import InforImage from './InforImage'
 import { useSelector } from 'react-redux'
@@ -14,7 +14,7 @@ import axios from 'axios'
 import { apiUrls_animalfamily } from '../../api/apiUrls'
 export default function Ecommerce(props) {
     const [selectImage, setSelectImage] = useState(0)
-	const [animalFamily, setAnimalFamily] = useState([])
+    const [animalFamily, setAnimalFamily] = useState([])
 
     const animals = useSelector(state => state.animals.animalList)
     const [data, setData] = useState()
@@ -34,27 +34,41 @@ export default function Ecommerce(props) {
     }
 
     useEffect(() => {
-		function loadData() {
-			axios
-				.get(`${apiUrls_animalfamily}/getAnimalFamilyList`)
-				.then(({ data }) => {
-					setAnimalFamily(data.content)
-				})
-		}
-		loadData()
-	}, [])
+        function loadData() {
+            axios
+                .get(`${apiUrls_animalfamily}/getAnimalFamilyList`)
+                .then(({ data }) => {
+                    setAnimalFamily(data.content)
+                })
+        }
+        loadData()
+    }, [])
 
-    
+
     let famiyName = {
-        ma_ho:'',
-        ten_ho:''
+        ma_ho: '',
+        ten_ho: ''
     }
 
-    if(data && animalFamily){
+    if (data && animalFamily) {
         const temp = animalFamily.find(element => element.ma_ho.toString() === data.ma_ho.toString())
-        if(temp){
+        if (temp) {
             famiyName = temp
         }
+    }
+
+    function onChangeImage(page) {
+        if (images.length === 1) return
+
+        if (page < 0) {
+            setSelectImage(images.length - 1)
+            return
+        }
+        if (page === images.length) {
+            setSelectImage(0)
+            return
+        }
+        setSelectImage(page)
     }
 
     return (
@@ -70,16 +84,22 @@ export default function Ecommerce(props) {
                         item container
                         sm={12} md={6}
                         alignItems="center"
-                        // justifyContent="center"
                     >
+
                         <div className="main-image" >
                             <MainImage src={images[selectImage]} />
-                        </div>
-                        <div className="item-image" style={{ width: 400 }}>
-                            {images.length > 1 &&
-                                <ImageGrind images={images} onSelection={image => setSelectImage(image)} />
+                            { images.length>1 &&
+                                <div>
+                                    <button className="btn-slide btn-left" onClick={() => onChangeImage(selectImage - 1)}></button>
+                                    <button className="btn-slide btn-right" onClick={() => onChangeImage(selectImage + 1)}></button>
+                                </div>
                             }
+                            <p style={{ textAlign: 'center', paddingTop: 50 }}> Hình động vật</p>
                         </div>
+
+                        {/* <div className="item-image" style={{ width: 400 }}>
+                            <ImageGrind images={images} onSelection={image => setSelectImage(image)} />
+                        </div> */}
                     </Grid>
 
                     <Grid className="animal-content" item sm={12} md={6} >
@@ -88,7 +108,7 @@ export default function Ecommerce(props) {
                 </Grid>
             </div>
 
-            <Suggestion animals={animals} data={data}  id={famiyName.ma_ho} />
+            <Suggestion animals={animals} data={data} id={famiyName.ma_ho} />
             <Footer />
         </div>
     )
