@@ -1,0 +1,19 @@
+.add-family-form {
+	width: 500px;
+
+	&__wrap-btns {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+	.file-field {
+		label {
+			display: inline-block;
+			margin-bottom: 8px;
+		}
+	}
+
+	.form-control {
+		margin-bottom: 24px;
+	}
+}

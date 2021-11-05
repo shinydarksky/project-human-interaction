@@ -28,7 +28,7 @@ export const getAnimalList = (req, res) => {
 		await Promise.all(promises)
 
 		res.status(200).json({
-			message: 'Lấy danh sách con vật thành công!',
+			message: 'Lấy danh sách động vật thành công!',
 			statusCode: 200,
 			content: response,
 		})
@@ -65,7 +65,7 @@ export const insertAnimal = (req, res) => {
 		})
 		await Promise.all(promises)
 		res.status(200).json({
-			message: 'Thêm con vật thành công!',
+			message: 'Thêm động vật thành công!',
 			statusCode: 200,
 		})
 	})
@@ -82,7 +82,7 @@ export const updateAnimal = (req, res) => {
 		}
 
 		res.status(200).json({
-			message: 'Cập nhật con vật thành công!',
+			message: 'Cập nhật động vật thành công!',
 			statusCode: 200,
 		})
 	})
@@ -107,7 +107,7 @@ export const deleteAnimal = (req, res) => {
 			}
 
 			res.status(200).json({
-				message: 'Xóa con vật thành công!',
+				message: 'Xóa động vật thành công!',
 				statusCode: 200,
 			})
 		})

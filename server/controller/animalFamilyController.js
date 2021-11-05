@@ -10,7 +10,7 @@ export const getAnimalFamilyList = (req, res) => {
 		}
 
 		res.status(200).json({
-			message: 'Lấy danh sách con vật thành công!',
+			message: 'Lấy danh sách họ động vật thành công!',
 			statusCode: 200,
 			content: response,
 		})
@@ -22,12 +22,12 @@ export const insertAnimalFamily = (req, res) => {
 	db.query(query, [req.body], (err, response) => {
 		if (err) {
 			res.sendStatus(500)
-			console.log(err);
+			console.log(err)
 			return
 		}
 
 		res.status(200).json({
-			message: 'Thêm con vật thành công!',
+			message: 'Thêm họ động vật thành công!',
 			statusCode: 200,
 		})
 	})
@@ -43,7 +43,7 @@ export const updateAnimalFamily = (req, res) => {
 		}
 
 		res.status(200).json({
-			message: 'Cập nhật con vật thành công!',
+			message: 'Cập nhật họ động vật thành công!',
 			statusCode: 200,
 		})
 	})
@@ -60,7 +60,7 @@ export const deleteAnimalFamily = (req, res) => {
 		}
 
 		res.status(200).json({
-			message: 'Xóa con vật thành công!',
+			message: 'Xóa họ động vật thành công!',
 			statusCode: 200,
 		})
 	})

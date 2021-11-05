@@ -32,26 +32,26 @@ function AddAnimalForm({ onSubmit, onClose, animalFamilyOptions }) {
 					images: [],
 				}}
 				validationSchema={yup.object().shape({
-					ten_dv: yup.string().required('Bạn phải nhập tên con vật!'),
-					ma_ho: yup.string().required('Bạn phải chọn họ con vật!'),
+					ten_dv: yup.string().required('Bạn phải nhập tên động vật!'),
+					ma_ho: yup.string().required('Bạn phải chọn họ động vật!'),
 					images: yup
 						.array()
-						.min(1, 'Bạn phải chọn ít nhất 1 hình ảnh cho con vật!'),
+						.min(1, 'Bạn phải chọn ít nhất 1 hình ảnh cho động vật!'),
 				})}
 				onSubmit={values => onSubmit(values)}
 			>
 				<Form className="add-animal-form">
 					<div className="form-control">
 						<FastField
-							label="Tên con vật"
-							placeholder="Nhập tên con vật"
+							label="Tên động vật"
+							placeholder="Nhập tên động vật"
 							name="ten_dv"
 							component={InputField}
 						/>
 					</div>
 					<div className="form-control">
 						<FastField
-							label="Họ con vật"
+							label="Họ động vật"
 							options={animalFamilyOptions}
 							name="ma_ho"
 							component={SelectField}
@@ -60,7 +60,7 @@ function AddAnimalForm({ onSubmit, onClose, animalFamilyOptions }) {
 					<div className="form-control">
 						<FastField
 							label="Mô tả"
-							placeholder="Nhập mô tả cho con vật!"
+							placeholder="Nhập mô tả cho động vật!"
 							multiline
 							rows={4}
 							name="mo_ta"
@@ -70,14 +70,14 @@ function AddAnimalForm({ onSubmit, onClose, animalFamilyOptions }) {
 					<div className="form-control">
 						<FastField
 							label="Địa điểm"
-							placeholder="Nhập nơi mà con vật sinh sống!"
+							placeholder="Nhập nơi mà động vật sinh sống!"
 							name="dia_diem"
 							component={InputField}
 						/>
 					</div>
 					<div className="form-control">
 						<FastField
-							label="Chọn ảnh cho con vật"
+							label="Chọn ảnh cho động vật"
 							name="images"
 							component={FileField}
 						/>

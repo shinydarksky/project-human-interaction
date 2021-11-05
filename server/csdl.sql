@@ -1,15 +1,16 @@
 CREATE TABLE HO_DV (
 	ma_ho int PRIMARY KEY AUTO_INCREMENT,
-  ten_ho varchar(128) NOT NULL
+  ten_ho varchar(128) NOT NULL,
+  mo_ta varchar(30000)
 );
 
 CREATE TABLE DONG_VAT (
 	ma_dv int PRIMARY KEY AUTO_INCREMENT,
   ten_dv varchar(128) NOT NULL,
-  mo_ta varchar(1000),
+  mo_ta varchar(30000),
   dia_diem varchar(256),
   ma_ho int NOT NULL,
-  FOREIGN KEY (ma_ho) REFERENCES HO_DV(ma_ho) 
+  FOREIGN KEY (ma_ho) REFERENCES HO_DV(ma_ho)
   ON DELETE CASCADE
 );
 
