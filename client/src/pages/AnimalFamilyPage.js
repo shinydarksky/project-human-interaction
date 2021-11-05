@@ -95,7 +95,7 @@ export default function AnimalFamilyPage() {
     return (
         <div>
             <TopNav menu={menu} />
-            <Search onSearch={handleSearch} title={famiyName && famiyName.ten_ho} />
+            <Search onSearch={handleSearch} title={famiyName && famiyName } />
             <div className="wrap-content">
                 {!selectFamily ?
                     <div className="container wrap-family">

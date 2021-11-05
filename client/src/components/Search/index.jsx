@@ -33,7 +33,10 @@ function Search(props) {
 			<div className="container">
 				<div className="search__container">
 					{title && <a href="http://localhost:3000/animalfamily"><button className="button-back">Trở lại</button></a>}
-					<h3 className="search__title">{title ? `Danh sách động vật thuộc họ ${title}`   : 'Tìm kiếm' }</h3>
+					<h3 className="search__title">{title ? <div>
+						Danh sách động vật thuộc họ {title.ten_ho}
+						<p style={{fontSize:'16px',padding:'15px',wordSpacing:'3px',lineHeight:'25px'}}>{title.mo_ta}</p>
+					</div>   : 'Tìm kiếm' }</h3>
 					
 					<div className="search__group">
 						<input

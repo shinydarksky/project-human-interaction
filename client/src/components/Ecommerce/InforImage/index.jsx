@@ -2,7 +2,7 @@ import { Divider, Grid, Typography, Box } from '@material-ui/core'
 import React from 'react'
 
 
-export default function InforImage({ data, name }) {
+export default function InforImage({ data, familyAnimal }) {
     let ten_dv = ''
     let mo_ta = ''
     let dia_diem = ''
@@ -16,7 +16,10 @@ export default function InforImage({ data, name }) {
         <div>
             <Grid container direction="column" style={{ height: "100%" }}>
                     
-                <Typography variant="subtitle1">{'Thuộc họ: ' + name}</Typography>
+                <Box>
+                <Typography variant="subtitle1">{'Thuộc họ: ' + familyAnimal.ten_ho}</Typography>
+                {/* <Typography variant="subtitle1">{`${familyAnimal.mo_ta}`}</Typography> */}
+                </Box>
                 <Divider />
                 <Box>
                     <Typography variant="h5">{`${ten_dv}`}</Typography>

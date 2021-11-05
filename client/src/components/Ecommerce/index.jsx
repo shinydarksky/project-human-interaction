@@ -78,6 +78,9 @@ export default function Ecommerce(props) {
                 {/* <a href="../">
                     <div className="home-button"> <div>&#60; Trang chủ</div></div>
                 </a> */}
+                <div className="back">
+                <a href="../"> <button className="button-back-home">Trở lại</button></a>
+                </div>
                 <Grid className="animal-main" container justifyContent="center">
                     <Grid className="animal-image"
                         item
@@ -101,7 +104,7 @@ export default function Ecommerce(props) {
                     </Grid>
 
                     <Grid className="animal-content" item sm={12} md={6}  >
-                        <InforImage data={data} name={famiyName.ten_ho} />
+                        <InforImage data={data} familyAnimal={famiyName}  />
                     </Grid >
                 </Grid>
             </div>
