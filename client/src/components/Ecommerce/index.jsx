@@ -73,17 +73,15 @@ export default function Ecommerce(props) {
 
     return (
         <div >
-            <div className="wrap-content-animal" style={{ overflow: 'none' }}>
+            <div className="wrap-content-animal" style={{ overflow: 'none' }} >
                 <TopNav menu={menu} />
                 {/* <a href="../">
                     <div className="home-button"> <div>&#60; Trang chủ</div></div>
                 </a> */}
-                <Grid className="animal-main" container spacing={5}>
+                <Grid className="animal-main" container justifyContent="center">
                     <Grid className="animal-image"
-                        direction="column"
-                        item container
+                        item
                         sm={12} md={6}
-                        alignItems="center"
                     >
 
                         <div className="main-image" >
@@ -102,7 +100,7 @@ export default function Ecommerce(props) {
                         </div> */}
                     </Grid>
 
-                    <Grid className="animal-content" item sm={12} md={6} >
+                    <Grid className="animal-content" item sm={12} md={6}  >
                         <InforImage data={data} name={famiyName.ten_ho} />
                     </Grid >
                 </Grid>

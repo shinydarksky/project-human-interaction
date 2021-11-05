@@ -22,7 +22,7 @@ function GridLayout(props) {
 		let temp = [...animals]
 
 		if (searchText.trim()) {
-			temp = temp.filter((animal) => (animal.ten_dv.search(searchText) >= 0))
+			temp = temp.filter((animal) => (animal.ten_dv.toLowerCase().search(searchText.toLowerCase()) >= 0))
 		}
 
 		const animalCurrent = temp.slice(first_num, last_num)

@@ -30,7 +30,9 @@ const HomePage = () => {
 		<div className="home-page">
 			<TopNav menu={menu} />
 			<Search onSearch={handleSearch} />
-			<SearchAlphabet onClickLetter={e => setSearchText(e)} />
+			<SearchAlphabet onClickLetter={e => {
+				setSearchText(e)
+			}} />
 			<div className="home-animals">
 				<GridLayout
 					animals={animals}

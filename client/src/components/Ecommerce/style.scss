@@ -17,13 +17,17 @@
         margin: 0 auto;
         max-width: 1100px;
         margin-top: 60px;
-            .main-image{
-                margin-bottom: 20px;
+        
+        .main-image{
+            margin-bottom: 20px;
+            position: relative;
+            padding:20px;
+            margin:30px;
                 img{
                     border: solid 10px rgb(247, 247, 247);
+                    display: block;
+                    margin: auto;
                 }
-                position: relative;
-                
                 .btn-slide{
                     width: 30px;
                     height: 30px;
@@ -59,13 +63,27 @@
                 .btn-right:hover{
                     transform:scale(1.05) rotate(180deg);
                 }
+
+                @media only screen and (max-width: 768px) {
+                   img{
+                       width: 300px;
+                       object-fit: cover;
+                   }
+                }
             }
 
-        
+        .animal-content{
+            padding:20px;
+            margin-top: 20px;
+
+        }
+        display: flex;
+        flex-wrap: wrap-reverse;
     }
 
     @media only screen and (max-width: 768px) {
 
-		margin-top: 100px;
+		padding-top:50px;
+        
 	}
 }
