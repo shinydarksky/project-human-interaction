@@ -28,7 +28,7 @@ export default function AnimalBoard() {
 	let animals = useSelector(state => state.animals.animalList)
 
 	if (searchText.trim()) {
-		animals = animals.filter((animal) => (animal.ten_dv.search(searchText) >= 0))
+		animals = animals.filter((animal) => (animal.ten_dv.toLowerCase().search(searchText.toLowerCase()) >= 0))
 	}
 
 	let totalPage = animals.length % 12 === 0 ? (animals.length - animals.length % 12) / 12 : (animals.length - animals.length % 12) / 12 + 1

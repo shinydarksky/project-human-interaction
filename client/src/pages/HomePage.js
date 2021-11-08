@@ -8,6 +8,7 @@ import GridLayout from '../components/GridLayout'
 import { menu } from './data'
 import { useSelector } from 'react-redux'
 import Footer from '../components/Footer'
+import { getFamily } from '../api/familyAPI'
 
 const HomePage = () => {
 	const [currentPage, setCurrentPage] = useState(1)
@@ -19,10 +20,13 @@ const HomePage = () => {
 		setSearchText(value)
 	}
 
+	console.log(getFamily())
 
 	const onChangePage = (event, value) => {
 		setCurrentPage(value);
 	}
+
+	
 
 
 
