@@ -9,7 +9,7 @@ the first type on terminal "git clone https://github.com/stupidlazyguy/project-h
 
 the second in turn go to folder client and server type on terminal npm install to install some module
 
-the third run this project create 2 terminal and type npm start to running server
+the third run this project create 2 terminal and type npm start to running server.
 
 
 
