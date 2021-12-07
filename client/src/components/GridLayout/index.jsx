@@ -13,6 +13,8 @@ GridLayout.defaultProps = {
 	animals: [],
 }
 
+
+
 function GridLayout(props) {
 	const { animals, currentPage, searchText, onChangePage } = props
 	let totalPage = 0

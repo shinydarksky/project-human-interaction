@@ -14,19 +14,19 @@ export default function InforImage({ data, familyAnimal }) {
 
     return (
         <div>
-            <Grid container direction="column" style={{ height: "100%" }}>
+            <Grid className="" container direction="column" style={{ height: "100%" }}>
                     
                 <Box>
-                <Typography variant="subtitle1">{'Thuộc họ: ' + familyAnimal.ten_ho}</Typography>
+                <Typography variant="subtitle1"><span className="pb-4">Thuộc họ:</span> {familyAnimal.ten_ho}</Typography>
                 {/* <Typography variant="subtitle1">{`${familyAnimal.mo_ta}`}</Typography> */}
                 </Box>
                 <Divider />
                 <Box>
-                    <Typography variant="h5">{`${ten_dv}`}</Typography>
+                    <Typography variant="h5" style={{padding:10}}>{`${ten_dv}`}</Typography>
                     <Divider />
-                    <Typography variant="subtitle1">{`Mô tả: ${mo_ta}`}</Typography>
+                    <Typography variant="subtitle1"><span className="pb-4">Mô tả:</span>{` ${mo_ta}`}</Typography>
                     <Divider />
-                    <Typography variant="subtitle1">{`Địa điểm sinh sống: ${dia_diem}`}</Typography>
+                    <Typography variant="subtitle1"><span className="pb-4">Địa điểm sinh sống: </span>{`${dia_diem}`}</Typography>
                 </Box>
             </Grid>
         </div>

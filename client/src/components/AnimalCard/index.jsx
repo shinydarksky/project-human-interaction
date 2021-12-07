@@ -10,12 +10,14 @@ AnimalCard.propTypes = {
 
 AnimalCard.defaultProps = {
 	animal: null,
-	onEdit: () => {},
-	onDelete: () => {},
+	onEdit: () => { },
+	onDelete: () => { },
 }
 
 function AnimalCard(props) {
 	const { animal, onEdit, onDelete } = props
+
+	
 
 	if (!animal) return null
 	return (
@@ -30,12 +32,14 @@ function AnimalCard(props) {
 					</button>
 				</div>
 			)}
-			<div className="animal-card__image">
-				<img src={animal.images[0] && animal.images[0].lien_ket} alt="Animal" />
-			</div>
-			<div className="animal-card__info">
-				<p className="animal-name">{animal.ten_dv}</p>
-			</div>
+			<abbr title="hello" style={{textDecoration:'none'}}>
+				<div className="animal-card__image">
+					<img src={animal.images[0] && animal.images[0].lien_ket} alt="Animal" />
+				</div>
+				<div className="animal-card__info">
+					<p className="animal-name">{animal.ten_dv}</p>
+				</div>
+			</abbr>
 		</div>
 	)
 }

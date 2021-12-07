@@ -95,7 +95,7 @@ export default function Ecommerce(props) {
                                     <button className="btn-slide btn-right" onClick={() => onChangeImage(selectImage + 1)}></button>
                                 </div>
                             }
-                            <p style={{ textAlign: 'center', paddingTop: 50 }}> Hình động vật</p>
+                            <p style={{ textAlign: 'center', padding: 20 }}> Hình động vật</p>
                         </div>
 
                         {/* <div className="item-image" style={{ width: 400 }}>
