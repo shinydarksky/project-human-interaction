@@ -25,7 +25,7 @@ export default function Footer() {
 
     return (
         <div className="footer">
-            Nội dung chân trang ứng dụng
+            CT245 - Tương tác người máy
             {showMoveTop &&  <button id="myBtn" title="Go to top" onClick={handleMoveTop}>^</button>}
         </div>
     )

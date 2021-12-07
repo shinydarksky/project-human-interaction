@@ -27,7 +27,7 @@ function LoginPage() {
 			dispatch(loadLogin(JSON.parse(acccessToken)))
 		}
 		if (isError) {
-			alert(isError)
+			// alert(isError)
 		}
 	}, [dispatch, isError])
 

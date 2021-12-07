@@ -26,9 +26,13 @@ export default function AnimalBoard() {
 
 	const dispatch = useDispatch()
 	let animals = useSelector(state => state.animals.animalList)
-
+	console.log(animals);
 	if (searchText.trim()) {
-		animals = animals.filter((animal) => (animal.ten_dv.search(searchText) >= 0))
+		animals = animals.filter((animal) => {
+			var searchtxt = searchText.toLowerCase();
+            let ten = animal.ten_dv.toLowerCase();
+			return ten.search(searchtxt) >= 0;
+		})
 	}
 
 	let totalPage = animals.length % 12 === 0 ? (animals.length - animals.length % 12) / 12 : (animals.length - animals.length % 12) / 12 + 1
